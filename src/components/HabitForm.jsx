@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 function HabitForm({ initialValues, onSubmit, onCancel }) {
   const [formData, setFormData] = useState({
     habitName: initialValues?.habit_name || '',
-    repeatOption: initialValues?.repeatOption || 'Weekly',
+    repeat_option: initialValues?.repeat_option || 'Weekly',
     timesPerWeek: initialValues?.repeat_times || 1,
     tickedDays: initialValues?.repeat_days || ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
     habitImportance: initialValues?.habit_subtext || '',
@@ -22,22 +22,24 @@ function HabitForm({ initialValues, onSubmit, onCancel }) {
   ];
 
   // Form UI - Toggle selection of days in form.
-  const toggleDaySelection = (day) => {
-    if (formData.tickedDays.includes(day)) {
-      setFormData({ ...formData, tickedDays: formData.tickedDays.filter((d) => d !== day) });
-    } else {
-      setFormData({ ...formData, tickedDays: [...formData.tickedDays, day] });
-    }
-  };
-
-  // Form UI - Used to clear tickedDays State when repeatOption changes to Weekly.
-useEffect(() => {
-  if (formData.repeatOption === 'Weekly') {
-    setFormData({ ...formData, tickedDays: [] });
-  } else if (formData.repeatOption === 'Ticked Days') {
-    setFormData({ ...formData, tickedDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] });
+const toggleDaySelection = (day) => {
+  if (!formData.tickedDays.length) {
+    setFormData({ ...formData, tickedDays: [day] });
+  } else if (formData.tickedDays.includes(day)) {
+    setFormData({ ...formData, tickedDays: formData.tickedDays.filter((d) => d !== day) });
+  } else {
+    setFormData({ ...formData, tickedDays: [...formData.tickedDays, day] });
   }
-}, [formData.repeatOption]);
+};
+
+  // Form UI - Used to clear tickedDays State when repeat_option changes to Weekly.
+// useEffect(() => {
+//   if (initialValues.repeat_option === 'Weekly') {
+//     setFormData((prevFormData) => ({ ...prevFormData, tickedDays: [] }));
+//   } else if (initialValues.repeat_option === 'Ticked Days') {
+//     setFormData((prevFormData) => ({ ...prevFormData, tickedDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] }));
+//   }
+// }, [initialValues]);
 
   // 
   const handleChange = (event) => {
@@ -50,7 +52,7 @@ useEffect(() => {
     onSubmit(formData);
   };
 
-const { habitName, repeatOption, timesPerWeek, tickedDays, habitImportance } = formData;
+const { habitName, repeat_option, timesPerWeek, tickedDays, habitImportance } = formData;
 
   
   return (
@@ -59,7 +61,7 @@ const { habitName, repeatOption, timesPerWeek, tickedDays, habitImportance } = f
         <label className="w-full">
         Habit Name:
           <div className="input-wrapper flex-1 w-full"> 
-            <input type="text" name="habitName" value={habitName} onChange={handleChange} className="w-full text-base font-normal pl-4" />
+            <input type="text" name="habitName" value={habitName} onChange={handleChange} className="w-full text-base font-normal pl-4" required/>
           </div>
       </label>
         </div>
@@ -67,12 +69,12 @@ const { habitName, repeatOption, timesPerWeek, tickedDays, habitImportance } = f
       <label className="mr-4">
         Repeat:
       </label>
-            <select name="repeatOption" value={repeatOption} onChange={handleChange} className="text-base font-normal">
+            <select name="repeat_option" value={repeat_option} onChange={handleChange} className="text-base font-normal">
               <option value="Weekly">Weekly</option>
               <option value="Ticked Days">Ticked Days</option>
               </select>
     </div>
-      {repeatOption === 'Weekly' ? (
+      {repeat_option === 'Weekly' ? (
       <div className="flex items-center">
         <label className="flex items-center">
           Times a week:

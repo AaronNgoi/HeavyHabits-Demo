@@ -38,18 +38,25 @@ const habitCreatedDateAdjusted = twoMonthsAgo;
   
 
 const handleSubmit = () => {
-  if (!habit.completion_dates || !habit.completion_dates.includes(formatDate(selectedDate))) {
+  const formattedDate = formatDate(selectedDate);
+
+  // Check if the date is not already completed
+  if (!habit.completed_dates || habit.completed_dates[formattedDate] !== true) {
     const updatedHabit = {
       ...habit,
-      completion_dates: [...(habit.completion_dates || []), formatDate(selectedDate)],
+      completed_dates: {
+        ...(habit.completed_dates || {}),
+        [formattedDate]: true,
+      },
     };
     handleUpdate(updatedHabit);
-    setSuccessMessage(`Record has been added on ${formatDate(selectedDate)}`);
+    setSuccessMessage(`Record has been added on ${formattedDate}`);
   } else {
-    setSuccessMessage(`Record for ${formatDate(selectedDate)} has already been added`);
+    setSuccessMessage(`Record for ${formattedDate} has already been added`);
   }
   navigate('/');
 };
+
 
 
   return (

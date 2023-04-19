@@ -21,23 +21,21 @@ const ShrunkHabitTracker = ({ habit }) => {
   } = useDeleteConfirmation(() => handleDelete(habit.id));
 
   
-  const handleComplete = () => {
-    const completion_dates = habit.completion_dates || [];
-    const today = formatDate(new Date());
-    
-    if (!completion_dates.includes(today)) {
-      completion_dates.push(today);
-    } else {
-      const index = completion_dates.indexOf(today);
-      completion_dates.splice(index, 1);
-    }
-  
-    handleUpdate({ ...habit, completion_dates });
-  };
+const handleComplete = () => {
+  const completed_dates = habit.completed_dates || {};
+  const today = formatDate(new Date());
 
-  const isCompleted = habit.completion_dates?.includes(
-    new Date().toISOString().split("T")[0]
-  );
+  if (!completed_dates[today]) {
+    completed_dates[today] = true;
+  } else {
+    delete completed_dates[today];
+  }
+
+  handleUpdate({ ...habit, completed_dates });
+};
+
+const isCompleted = habit.completed_dates?.[new Date().toISOString().split("T")[0]] === true;
+
 
   const handleEditClick = () => {
   };
@@ -61,24 +59,19 @@ const ShrunkHabitTracker = ({ habit }) => {
         <HabitHeader habitName={habit.habit_name} habitSubtext={habit.habit_subtext}/>
       </div>
       
-      <div className="ml-3">
-        <button
-          className={`complete-today-btn ${
-            habit.completion_dates?.includes(
-              formatDate(new Date())
-              )
-              ? 'completed'
-              : ''
-          }`}
-          onClick={handleComplete}
-        >
-          {habit.completion_dates?.includes(
-              formatDate(new Date())
-              )
-            ? '✓'
-            : '✓'}
-        </button>
-      </div>
+<div className="ml-3">
+  <button
+    className={`complete-today-btn ${
+      habit.completed_dates?.[formatDate(new Date())] === true
+        ? 'completed'
+        : ''
+    }`}
+    onClick={handleComplete}
+  >
+    {habit.completed_dates?.[formatDate(new Date())] === true ? '✓' : '✓'}
+  </button>
+</div>
+
     </div>
   );
 };

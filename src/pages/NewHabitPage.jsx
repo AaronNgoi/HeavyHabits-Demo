@@ -10,24 +10,25 @@ const NewHabitPage = () => {
   const { handleAddNewHabit } = useHabits();
   const navigate = useNavigate();
 
-  const handleNewHabitSubmit = (formData) => {
-    const habitData = {
-      id: new Date().getTime(),
-      habit_name: formData.habitName,
-      habit_subtext: formData.habitImportance,
-      repeat_days: formData.selectedDays,
-      repeat_times: formData.repeatOption === 'Weekly' ? formData.timesPerWeek : null,
-      habit_created_date: formatDate(new Date()),
-      completed_dates: {},
-      expected_dates: {},
-    };
-
-    // Save the habit data to the database, e.g., using the handleAddNewHabit function from HabitContext
-    handleAddNewHabit(habitData);
-
-    // Navigate to the main menu
-    navigate('/');
+const handleNewHabitSubmit = (formData) => {
+  const habitData = {
+    id: new Date().getTime(),
+    habit_name: formData.habitName,
+    habit_subtext: formData.habitImportance,
+    repeat_option: formData.repeat_option,
+    repeat_days: formData.repeat_option === 'Ticked Days' ? formData.tickedDays : null,
+    repeat_times: formData.repeat_option === 'Weekly' ? formData.timesPerWeek : null,
+    habit_created_date: formatDate(new Date()),
+    completed_dates: {},
+    expected_dates: {},
   };
+
+  // Save the habit data to the database, e.g., using the handleAddNewHabit function from HabitContext
+  handleAddNewHabit(habitData);
+
+  // Navigate to the main menu
+  navigate('/');
+};
 
   return (
     <div>

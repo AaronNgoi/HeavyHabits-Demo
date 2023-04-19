@@ -15,19 +15,25 @@ const handleCancel = () => {
   navigate('/');
 };
   
-  const handleUpdateHabit = (formData) => {
-    const updatedHabitData = {
-      ...habitToEdit,
-      habit_name: formData.habitName,
-      habit_subtext: formData.habitImportance,
-      repeat_days: formData.selectedDays,
-      repeat_times: formData.repeatOption === 'Weekly' ? formData.timesPerWeek : null,
-    };
+const handleUpdateHabit = (formData) => {
+  let updatedTimesPerWeek = formData.timesPerWeek;
+  if (formData.repeat_option === 'Weekly' && !updatedTimesPerWeek.length) {
+    updatedTimesPerWeek = "1"; // Set default value to 1 if timesPerWeek is an empty array
+  }
+  
+  const updatedHabitData = {
+    ...habitToEdit,
+    habit_name: formData.habitName,
+    habit_subtext: formData.habitImportance,
+    repeat_option: formData.repeat_option,
+    repeat_days: formData.repeat_option === 'Ticked Days' ? formData.tickedDays : [],
+    repeat_times: formData.repeat_option === 'Weekly' ? updatedTimesPerWeek : [],
   };
 
-    handleUpdate(updatedHabitData);
-    navigate('/');
-  };
+  handleUpdate(updatedHabitData);
+  navigate('/');
+};
+
 
   return (
     <div>
@@ -47,7 +53,7 @@ const handleCancel = () => {
         <HabitForm
           initialValues={{
             habit_name: habitToEdit.habit_name,
-            repeatOption: habitToEdit.repeat_times ? 'Weekly' : 'Certain Days',
+            repeat_option: habitToEdit.repeat_option,
             repeat_times: habitToEdit.repeat_times,
             repeat_days: habitToEdit.repeat_days,
             habit_subtext: habitToEdit.habit_subtext,
