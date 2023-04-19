@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #F2DAB5;
+  color: #571B09;
+  font-family: 'Arial', sans-serif;
+}
+
+input[type='text'],
+textarea,
+select {
+  background-color: #F2DAB5;
+  border: 1px solid #BB925D;
+  border-radius: 20px;
+  padding: 5px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 16px;
+  color: #571B09;
+}
+
+.form-day-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #BB925D;
+  border-radius: 50%;
+  padding: 0.4em;
+  margin: 0.4em;
+  background-color: #FCE9CA;
+  font-size: 1.2em;
+  cursor: pointer;
+  width: 1.8em;
+  height: 1.8em;
+}
+
+.form-day-btn.selected {
+/*   background-color: #BB925D; */
+  color: #571B09;
+  font-weight: bold;
+  border: 4px solid #BB925D;
+}
+
+form {
+  background-color: #FDEFD9;
+  border-radius: 30px;
+  border: 2px solid #BB925D;
+}
+
+.standard-component {
+  border: 2px solid #BB925D;
+  border-radius: 30px;
+  background-color: #FDEFD9;
+}
+
+.complete-today-btn {
+  background-color: #FCE9CA;
+  border: 2px solid #BB925D;
+  border-radius: 42%;
+  width: 35px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  color: #FCE9CA;
+}
+
+.complete-today-btn.completed {
+  background-color: #FADDAD;
+  color: #571B09;
+  font-weight: bold;
+  border: 3px solid #BB925D;
+   font-size: 1.3em;
+}
+
+.header {
+  background-color: #B87647;
+  color: #FDEFD9;
+  text-align: center;
+}
