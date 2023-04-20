@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import '../dist/output.css';
 import NewHabitPage from './pages/NewHabitPage';
@@ -9,6 +9,7 @@ import useLocalStorage from './hooks/useLocalStorage';
 import AddHistoricalRecordPage from './pages/AddHistoricalRecordPage';
 import { HabitProvider } from './context/HabitContext';
 import HabitControlsContext from './context/HabitControlsContext';
+import updateExpectedDatesForPreviousDay from './helpers/updateExpectedDatesForPreviousDay';
 
 const App = () => {
   const [habits, setHabits] = useLocalStorage('habits', []);
@@ -34,7 +35,30 @@ const App = () => {
     setHabits(newHabits);
   };
 
+  // This function updates expected_dates for previous day.
+    const updateHabits = () => {
+  const updatedHabits = habits.map(updateExpectedDatesForPreviousDay);
+  setHabits(updatedHabits);
+};
 
+  useEffect(() => {
+  const updateAtMidnight = () => {
+    const now = new Date();
+    const nextDay = new Date(now);
+    nextDay.setDate(nextDay.getDate() + 1);
+    nextDay.setHours(0, 0, 0, 0);
+    const timeUntilMidnight = nextDay.getTime() - now.getTime();
+    return timeUntilMidnight;
+  };
+
+  updateHabits(); // Call the updateHabits function when the component mounts
+  const timeoutId = setTimeout(() => {
+    updateHabits();
+    setInterval(updateHabits, 24 * 60 * 60 * 1000); // Call updateHabits every 24 hours (every new day)
+  }, updateAtMidnight());
+
+  return () => clearTimeout(timeoutId); // Clean up the timeout when the component is unmounted
+}, []);
 
   return (
     <HabitProvider value={{ habits, handleAddNewHabit, handleDelete, handleUpdate }}>
