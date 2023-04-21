@@ -1,3 +1,4 @@
 export const getDayOfWeek = (date) => {
-  return date.toLocaleDateString('en-AU', { weekday: 'long' });
+  const options = { weekday: 'long', timeZone: 'Australia/Melbourne' };
+  return date.toLocaleDateString('en-AU', options);
 };

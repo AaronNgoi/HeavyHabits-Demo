@@ -69,7 +69,7 @@ const handleSubmit = () => {
       <DatePicker
         selected={selectedDate}
         onChange={handleDateChange}
-        dateFormat="MM/dd/yyyy"
+        dateFormat="dd/MM/yyyy"
         minDate={new Date(habitCreatedDateAdjusted.getTime() - 3 * 24 * 60 * 60 * 1000)}
         maxDate={new Date()}
         filterDate={(date) => date >= habitCreatedDateAdjusted}
