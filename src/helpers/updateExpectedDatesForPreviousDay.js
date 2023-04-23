@@ -53,7 +53,7 @@ const yesterdayFormatted = formatDateDMY(yesterday)
 }
 
     isExpected = ((remainingDays - parseInt(habit.repeat_times)) + completedCount < 0) ||
-             (habit.completed_dates[yesterdayFormatted] && completedCount <= parseInt(habit.repeat_times));
+             (!!habit.completed_dates[yesterdayFormatted] && completedCount <= parseInt(habit.repeat_times));
   }
 
   return {

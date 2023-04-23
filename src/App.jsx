@@ -26,7 +26,7 @@ const App = () => {
     setHabits(newHabits);
   };
 
-  const today = new Date('2023-04-20T09:00:00');
+  const today = new Date('2023-04-23T09:00:00');
 const testHabits = [
   {
     id: 1,
@@ -77,7 +77,7 @@ const testHabits = [
     habit_name: 'Read',
     habit_subtext: 'Read 20 pages',
     repeat_days: [],
-    repeat_times: '2',
+    repeat_times: '4',
     repeat_option: 'weekly',
     habit_created_date: '15/04/2023',
     completed_dates: {
