@@ -1,3 +1,5 @@
+import { formatDateDMY } from "../utils/formatDateDMY";
+
 const addMissingEntriesForAllDates = (habits) => {
   const updatedHabits = habits.map((habit) => {
     const habitCreatedDate = new Date(habit.habit_created_date.split('/').reverse().join('-'));
@@ -16,3 +18,5 @@ const addMissingEntriesForAllDates = (habits) => {
 
   return updatedHabits;
 };
+
+export default addMissingEntriesForAllDates;
