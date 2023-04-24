@@ -4,6 +4,8 @@ import Header from '../Header';
 import HabitForm from '../components/HabitForm';
 import { useHabits } from '../context/HabitContext';
 import BackIcon from '../assets/back_icon.svg';
+import recalculateExpectedDatesForHabit from '../helpers/recalculateExpectedDatesForHabit';
+import PageWrapper from '../components/PageWrapper';
 
 const EditHabitPage = () => {
   const { habits, handleUpdate } = useHabits();
@@ -30,14 +32,27 @@ const handleUpdateHabit = (formData) => {
     repeat_times: formData.repeat_option === 'Weekly' ? updatedTimesPerWeek : [],
   };
 
-  handleUpdate(updatedHabitData);
-  navigate('/');
+  const relevantProperties = ['repeat_option', 'repeat_days', 'repeat_times'];
+  const hasChanged = relevantProperties.some(prop => habitToEdit[prop] !== updatedHabitData[prop]);
+  
+  if (hasChanged) {
+    const habitWithRecalculatedExpectedDates = recalculateExpectedDatesForHabit(updatedHabitData);
+    
+    handleUpdate(habitWithRecalculatedExpectedDates);
+    // Save/update the habitWithRecalculatedDates to your data store
+    navigate('/');
+  } else {
+    handleUpdate(updatedHabitData);
+    navigate('/');
+  }
 };
 
 
   return (
     <div>
       <Header text="EDIT HABIT" />
+            <PageWrapper>
+        {
       <div className="px-6">
       <div className="py-4">
         
@@ -63,6 +78,8 @@ const handleUpdateHabit = (formData) => {
         />
       )}
     </div>
+        }
+     </PageWrapper>
     </div>
   );
 };

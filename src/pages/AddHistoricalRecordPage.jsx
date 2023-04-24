@@ -5,6 +5,7 @@ import { useHabits } from '../context/HabitContext';
 import AddHistoricalRecord from '../components/AddHistoricalRecord';
 import { useLocation } from 'react-router-dom';
 import BackIcon from '../assets/back_icon.svg';
+import PageWrapper from '../components/PageWrapper';
 
 
 const AddHistoricalRecordPage = () => {
@@ -15,6 +16,8 @@ const AddHistoricalRecordPage = () => {
   return (
     <div>
       <Header text="ADD RECORD" />
+            <PageWrapper>
+        {
       <div className="px-6">
       <div className="py-4">
         
@@ -28,6 +31,8 @@ const AddHistoricalRecordPage = () => {
       </div>
       <AddHistoricalRecord habitId={habitIdNumber} className="standard-page" />
     </div>
+        }
+        </PageWrapper>
     </div>
   );
 };

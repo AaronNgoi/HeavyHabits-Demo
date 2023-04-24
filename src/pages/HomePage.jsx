@@ -4,6 +4,7 @@ import Header from '../Header';
 import ShrunkHabitTracker from '../ShrunkHabitTracker';
 import { useHabits } from '../context/HabitContext';
 import AddHabitIcon from '../assets/add_habit_icon.svg';
+import PageWrapper from '../components/PageWrapper';
 
 const HomePage = () => {
   const { habits, handleDelete, handleUpdate } = useHabits();
@@ -11,6 +12,8 @@ const HomePage = () => {
   return (
     <div>
       <Header text="TRACKER - TODAY" />
+      <PageWrapper>
+        {
       <div className= "px-6">
       <div className= "py-6">
         <div>
@@ -37,6 +40,8 @@ const HomePage = () => {
       ))}
       </div>
       </div>
+        }
+      </PageWrapper>
     </div>
   );
 };

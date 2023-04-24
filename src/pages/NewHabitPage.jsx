@@ -5,6 +5,7 @@ import HabitForm from '../components/HabitForm';
 import { useHabits } from '../context/HabitContext';
 import BackIcon from '../assets/back_icon.svg';
 import {formatDate} from '../utils/dateUtils';
+import PageWrapper from '../components/PageWrapper';
 
 const NewHabitPage = () => {
   const { handleAddNewHabit } = useHabits();
@@ -33,6 +34,8 @@ const handleNewHabitSubmit = (formData) => {
   return (
     <div>
       <Header text="NEW HABIT" />
+            <PageWrapper>
+        {
       <div className="px-6">
       <div className="py-4">
         
@@ -46,6 +49,8 @@ const handleNewHabitSubmit = (formData) => {
       </div>
       <HabitForm onSubmit={handleNewHabitSubmit} />
     </div>
+        }
+      </PageWrapper>
     </div>
   );
 };
