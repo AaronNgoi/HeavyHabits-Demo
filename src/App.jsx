@@ -12,7 +12,7 @@ import HabitControlsContext from './context/HabitControlsContext';
 import updateExpectedDatesForPreviousDay from './helpers/updateExpectedDatesForPreviousDay';
 // import testUpdateExpectedDatesForPreviousDay from './helpers/test/testUpdateExpectedDatesForPreviousDay';
 import addIncompleteHabitForYesterday from './helpers/addIncompleteHabitForYesterday';
-import addMissingEntriesForAllDates from './helpers/addMissingEntriesForAllDates';
+// import addMissingEntriesForAllDates from './helpers/addMissingEntriesForAllDates';
 
 const App = () => {
   const [habits, setHabits] = useLocalStorage('habits', []);
@@ -155,10 +155,6 @@ const App = () => {
     const timeUntilMidnight = nextDay.getTime() - now.getTime();
     return timeUntilMidnight;
   };
-
-
-    
-
     
   updateHabits(); // Call the updateHabits function when the component mounts
   const timeoutId = setTimeout(() => {

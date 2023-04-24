@@ -20,3 +20,8 @@ const addMissingEntriesForAllDates = (habits) => {
 };
 
 export default addMissingEntriesForAllDates;
+
+// Call in app.js - to use
+
+// const updatedHabits = addMissingEntriesForAllDates(habits);
+//   setHabits(updatedHabits);
