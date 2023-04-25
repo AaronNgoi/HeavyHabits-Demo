@@ -1,6 +1,7 @@
 import calculateCompletedDates from '../helpers/calculateCompletedDates';
 import calculateConsistency from '../helpers/calculateConsistency';
 import calculateStreak from '../helpers/calculateStreak';
+import CircleDateDisplay from '../utils/circleDateDisplay';
 
 const ExpandedHabitInfo = ({ habit }) => {
 

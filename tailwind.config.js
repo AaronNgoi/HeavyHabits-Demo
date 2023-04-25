@@ -17,6 +17,7 @@ module.exports = {
         'biege': {
 		       'drop-down':'#EECFA0',
 	         'form-colour':'#FDEFD9',
+           'display':'#FCE9CA', 
         //    'header-bottom': '#A97A40',
           },
        },
