@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
 import { formatDate } from '../utils/dateUtils';
-
+import recalculateHistoricalExpectedDates from '../helpers/recalculateHistoricalExpectedDates';
 
 const AddHistoricalRecord = ({ habitId }) => {
   const { habits, handleUpdate } = useHabits();
@@ -38,6 +38,7 @@ const habitCreatedDateAdjusted = twoMonthsAgo;
   
 
 const handleSubmit = () => {
+  console.log("AddHistoricalRecord handleSubmit called");
   const formattedDate = formatDate(selectedDate);
 
   // Check if the date is not already completed
@@ -49,6 +50,11 @@ const handleSubmit = () => {
         [formattedDate]: true,
       },
     };
+
+    // Recalculate the expected dates for the updated habit
+    const updatedExpectedDates = recalculateHistoricalExpectedDates(updatedHabit, selectedDate);
+    updatedHabit.expected_dates = updatedExpectedDates.expected_dates;
+    
     handleUpdate(updatedHabit);
     setSuccessMessage(`Record has been added on ${formattedDate}`);
   } else {

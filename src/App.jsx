@@ -126,10 +126,7 @@ const App = () => {
 
 // testUpdateExpectedDatesForPreviousDay(today, testHabits, expectedResult);
 
-  const handleUpdate = (updatedHabit, completionDate) => {
-    if (completionDate) {
-      updatedHabit.completion_dates.push(completionDate);
-    }
+  const handleUpdate = (updatedHabit) => {
     const newHabits = habits.map((habit) =>
       habit.id === updatedHabit.id ? updatedHabit : habit
     );
