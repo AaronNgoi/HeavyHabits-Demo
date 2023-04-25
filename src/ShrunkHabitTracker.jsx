@@ -1,15 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { useHabits } from './context/HabitContext';
-import DeleteConfirmationModal from './DeleteConfirmationModal';
 import useDeleteConfirmation from './hooks/useDeleteConfirmation';
-import { Link } from 'react-router-dom';
 import HabitHeader from './components/HabitHeader';
 import HabitControls from './components/HabitControls';
 import HabitControlsContext from './context/HabitControlsContext';
 import { formatDate } from './utils/dateUtils';
+import ExpandedHabitInfo from './components/ExpandedHabitInfo';
 
 
-const ShrunkHabitTracker = ({ habit }) => {
+const ShrunkHabitTracker = ({ habit, expanded }) => {
   const { handleDelete, handleUpdate } = useHabits();
   const { openedControl, setOpenedControl } = useContext(HabitControlsContext);
   
@@ -44,7 +43,8 @@ const isCompleted = habit.completed_dates?.[new Date().toISOString().split("T")[
   };
 
   return (
-    <div className="standard-component relative flex items-center justify-between py-2 px-3">
+    <div className="standard-component relative flex flex-col items-stretch py-2 px-3">
+      <div className="flex items-center justify-between">
       <div className="flex items-center space-x-3">
         <div className="-mr-1">
         <HabitControls
@@ -58,7 +58,6 @@ const isCompleted = habit.completed_dates?.[new Date().toISOString().split("T")[
           </div>
         <HabitHeader habitName={habit.habit_name} habitSubtext={habit.habit_subtext}/>
       </div>
-      
 <div className="ml-3">
   <button
     className={`complete-today-btn ${
@@ -71,7 +70,8 @@ const isCompleted = habit.completed_dates?.[new Date().toISOString().split("T")[
     {habit.completed_dates?.[formatDate(new Date())] === true ? '✓' : '✓'}
   </button>
 </div>
-
+    </div>
+      {expanded && <ExpandedHabitInfo habit = {habit} />}
     </div>
   );
 };

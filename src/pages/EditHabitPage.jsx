@@ -54,7 +54,7 @@ const handleUpdateHabit = (formData) => {
             <PageWrapper>
         {
       <div className="px-6">
-      <div className="py-4">
+      <div className="py-6">
         
           <button className="flex items-center justify-center bg-brown-add-button text-FCE3BF font-bold py-2 px-4 rounded-2xl border-brown-font border-2">
         <Link to="/">    
