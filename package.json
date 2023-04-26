@@ -21,6 +21,7 @@
   "dependencies": {
     "@emotion/styled": "^11.10.6",
     "date-fns": "^2.29.3",
+    "prettier": "^2.8.8",
     "react-date-picker": "^10.0.3",
     "react-datepicker": "^4.11.0",
     "react-router-dom": "^6.10.0"

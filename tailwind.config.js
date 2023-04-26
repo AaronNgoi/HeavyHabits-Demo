@@ -3,6 +3,12 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,html}"],
   theme: {
     extend: {
+
+          // maxWidth:{
+          //   '150':'150px'
+          // }
+      
+      
          colors: {
           FCE3BF:'#FCE3BF',
           FACE8F:'#FACE8F',

@@ -8,8 +8,9 @@ const ExpandedHabitInfo = ({ habit }) => {
   
   return (
     <div className = "py-3 px-3 w-full">
-      <div className="flex flex-col">
-         <div className="flex mb-3 ml-8">
+      <div className="flex flex-wrap">
+      <div className="flex flex-col mr-3">
+         <div className="flex justify-center">
          <div className = " relative flex flex-col items-center">
           <div className="text-2xl font-bold flex ">
         {calculateConsistency(habit)} <span className="text-base font-normal self-end">% </span>
@@ -21,8 +22,8 @@ const ExpandedHabitInfo = ({ habit }) => {
            </div>
         
         
-      <div className ="flex relative items-stretch">
-        <div className = " relative flex flex-col items-center mr-4">
+      <div className ="grid grid-cols-2 gap-4 mt-2 justify-center items-center">
+        <div className = "flex flex-col items-center justify-center">
           <div className="text-2xl font-bold flex">
         {calculateCompletedDates(habit)}
         </div>
@@ -33,7 +34,7 @@ const ExpandedHabitInfo = ({ habit }) => {
 
 
 
-          <div className = " relative flex flex-col items-center">
+          <div className = "flex flex-col items-center justify-center">
           <div className="text-2xl font-bold flex ">
         {calculateStreak(habit)}
         </div>
@@ -44,7 +45,12 @@ const ExpandedHabitInfo = ({ habit }) => {
         
         </div>
       </div>
-      
+
+        <div className="w-full md:w-auto">
+          {/* Add your Habit Circle Displays component here */}
+        </div>
+        
+      </div>
     </div>
   );
 };
