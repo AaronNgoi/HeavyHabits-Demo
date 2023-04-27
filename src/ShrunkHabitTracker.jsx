@@ -58,9 +58,9 @@ const isCompleted = habit.completed_dates?.[new Date().toISOString().split("T")[
           </div>
         <HabitHeader habitName={habit.habit_name} habitSubtext={habit.habit_subtext}/>
       </div>
-<div className="ml-3">
+<div className="">
   <button
-    className={`complete-today-btn ${
+    className={`flex justify-center complete-today-btn ${
       habit.completed_dates?.[formatDate(new Date())] === true
         ? 'completed'
         : ''

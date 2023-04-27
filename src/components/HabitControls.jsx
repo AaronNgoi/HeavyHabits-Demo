@@ -56,7 +56,7 @@ const handleClickOutside = (event) => {
 
   
   return (
-    <div id={generateMenuRef(habit.id)} ref={menuRef}>
+    <div id={generateMenuRef(habit.id)} ref={menuRef} className="flex justify-center">
       <button onClick={toggleOptions}>
         <img src={OptionsIcon} alt="More options" />
       </button>
