@@ -3,11 +3,24 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,html}"],
   theme: {
     extend: {
+      margin: {
+        '1px': '1px',
+      },
+      width: {
+        '11': '11px',
+        '13': '13px',
+      },
+      height: {
+        '11': '11px',
+        '13': '13px',
+      },      
 
-          // maxWidth:{
-          //   '150':'150px'
-          // }
-      
+      fontSize: {
+        '9': '9px',
+        '10': '10px',
+        '11': '11px',
+      },
+
       
          colors: {
           FCE3BF:'#FCE3BF',

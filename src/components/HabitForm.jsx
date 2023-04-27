@@ -56,7 +56,7 @@ const { habitName, repeat_option, timesPerWeek, tickedDays, habitImportance } = 
 
   
   return (
-    <form onSubmit={handleSubmit} className="p-8 text-lg font-bold flex flex-col gap-4 shadow pb-8">
+    <form onSubmit={handleSubmit} className="p-8 text-lg font-bold flex flex-col gap-4 shadow-md drop-shadow-md pb-8">
       <div  className="flex items-center justify-between">
         <label className="w-full">
         Habit Name:

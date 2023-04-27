@@ -12,9 +12,9 @@ const CircleDateDisplay = ({ date, expected_date, completed_date }) => {
   }
 
   return (
-    <div className={`circle-date-display ${bgColor}`}>
-      {date}
-    </div>
+    <div 
+      className={`h-11 w-11 m-1px rounded-full flex items-center justify-center ${bgColor}`}
+      />
   );
 };
 
