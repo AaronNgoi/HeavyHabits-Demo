@@ -23,5 +23,7 @@ export const getHabitDisplayData = (habit, startDate) => {
     });
   }
 
+  console.log(output)
+  
   return output;
 };

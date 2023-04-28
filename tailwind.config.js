@@ -6,6 +6,12 @@ module.exports = {
       margin: {
         '1px': '1px',
       },
+
+      borderRadius: {
+      '22px': '22px',
+      '17px': '17px',
+    },
+      
       width: {
         '11': '11px',
         '13': '13px',

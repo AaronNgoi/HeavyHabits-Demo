@@ -45,25 +45,24 @@ select {
 
 form {
   background-color: #FDEFD9;
-  border-radius: 30px;
+  border-radius: 35px;
   border: 2px solid #BB925D;
 }
 
 .standard-component {
   border: 2px solid #BB925D;
-  border-radius: 30px;
+  border-radius: 35px;
   background-color: #FDEFD9;
 }
 
 .complete-today-btn {
   background-color: #FCE9CA;
   border: 2px solid #BB925D;
-  border-radius: 42%;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   align-items: center;
   justify-content: center;
-  color: #FCE9CA;
+  color: transparent;
 }
 
 .complete-today-btn.completed {

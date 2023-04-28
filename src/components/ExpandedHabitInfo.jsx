@@ -4,13 +4,16 @@ import calculateStreak from '../helpers/calculateStreak';
 import CircleDateDisplay from '../utils/circleDateDisplay';
 import {getHabitDisplayData} from '../helpers/getHabitDisplayData';
 
-import { format, isSameMonth, isSameWeek, subWeeks, startOfWeek } from 'date-fns';
+import { format, isSameMonth, addMonths, isSameWeek, subWeeks, startOfWeek } from 'date-fns';
 
 const ExpandedHabitInfo = ({ habit }) => {
 
 const startDate = subWeeks(startOfWeek(new Date()), 12);
 const habitDisplayData = getHabitDisplayData(habit, startDate);
 
+
+
+  
   const renderWeeks = (habitDisplayData) => {
   const weeks = [];
   let week = [];
