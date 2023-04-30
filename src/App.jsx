@@ -170,7 +170,7 @@ const App = () => {
       <Router>
         <div className="App">
           {/* <Header text='TRACKER - TODAY'></Header> */}
-          <div className="bg-brown-pet-bg relative h-10"> </div>
+          <div className="bg-brown-pet-bg relative h-44"> </div>
         <PetDisplay></PetDisplay>
           <Routes>
             <Route exact path="/" element={<HomePage />} />
