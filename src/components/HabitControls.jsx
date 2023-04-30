@@ -61,7 +61,7 @@ const handleClickOutside = (event) => {
         <img src={OptionsIcon} alt="More options" />
       </button>
       {openedControl === habit.id && (
-        <div className="absolute left-1 z-10">
+        <div className="absolute left-1 top-12 z-10">
         <div className="px-6 py-4 rounded-2xl bg-biege-drop-down shadow-md drop-shadow-md  flex flex-col border-2 border-brown-border">
           <Link to={`/habit/${habit.id}/edit`} className="flex items-center mb-4">
             <button className="inline-flex items-center">

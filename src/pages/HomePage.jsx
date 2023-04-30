@@ -7,6 +7,7 @@ import AddHabitIcon from '../assets/add_habit_icon.svg';
 import PageWrapper from '../components/PageWrapper';
 import ShrinkIcon from '../assets/Shrink.svg';
 import ExpandIcon from '../assets/Expand.svg';
+import PetDisplay from '../PetDisplay';
 
 const HomePage = () => {
   const { habits, handleDelete, handleUpdate } = useHabits();
@@ -17,12 +18,13 @@ const HomePage = () => {
 };
   
   return (
-    <div>
+    <div className="">
       <Header text="TRACKER - TODAY" />
+      <PetDisplay></PetDisplay>
       <PageWrapper>
         {
       <div className= "px-6">
-      <div className= "py-6">
+      <div className= "pt-2 pb-4">
         <div className= "flex justify-between">
         
           <button className="flex items-center justify-center text-lg bg-brown-add-button text-FCE3BF font-bold py-2 px-4 rounded-22px border-brown-font border-2">
@@ -35,7 +37,7 @@ const HomePage = () => {
               </Link>
           </button>
 
-          <button onClick={toggleExpanded} className="flex items-center text-lg justify-center bg-FACE8F text-brown-font font-bold py-2 px-4 rounded-2xl border-brown-header-bottom rounded-22px border-2">
+          <button onClick={toggleExpanded} className="flex items-center text-lg justify-center bg-FACE8F text-brown-font font-bold py-2 px-4 rounded-22px border-brown-component rounded-22px border-2">
               {expanded ? (
     <>
       <img src={ShrinkIcon} alt="Shrink Icon" className="h-5 w-5 inline-block"/>

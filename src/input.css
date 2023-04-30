@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: #F2DAB5;
+  background-color: #B87647;
   color: #571B09;
   font-family: 'Arial', sans-serif;
 }
@@ -71,10 +71,4 @@ form {
   font-weight: bold;
   border: 3px solid #BB925D;
    font-size: 1.3em;
-}
-
-.header {
-  background-color: #B87647;
-  color: #FDEFD9;
-  text-align: center;
 }

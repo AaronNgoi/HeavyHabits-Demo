@@ -1,5 +1,5 @@
 const PageWrapper = ({ children }) => {
-  return <div className="max-w-lg mx-auto mb-6">{children}</div>;
+  return <div className="bg-biege-background"><div className="bg-biege-background relative pt-2 pb-40 max-w-md mx-auto mb-6">{children}</div></div>;
 };
 
 export default PageWrapper;

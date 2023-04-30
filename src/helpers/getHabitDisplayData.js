@@ -22,8 +22,6 @@ export const getHabitDisplayData = (habit, startDate) => {
       expected_date,
     });
   }
-
-  console.log(output)
   
   return output;
 };

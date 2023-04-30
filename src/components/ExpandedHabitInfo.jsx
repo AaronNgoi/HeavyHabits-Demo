@@ -4,19 +4,17 @@ import calculateStreak from '../helpers/calculateStreak';
 import CircleDateDisplay from '../utils/circleDateDisplay';
 import {getHabitDisplayData} from '../helpers/getHabitDisplayData';
 
-import { format, isSameMonth, addMonths, isSameWeek, subWeeks, startOfWeek } from 'date-fns';
+import {format, isFirstDayOfMonth, subWeeks, startOfWeek } from 'date-fns';
 
 const ExpandedHabitInfo = ({ habit }) => {
 
-const startDate = subWeeks(startOfWeek(new Date()), 12);
+const startDate = subWeeks(startOfWeek(new Date(), { weekStartsOn: 1 }), 12);
 const habitDisplayData = getHabitDisplayData(habit, startDate);
 
-
-
-  
   const renderWeeks = (habitDisplayData) => {
   const weeks = [];
   let week = [];
+    
   const weekLabels = ['&nbsp;', 'M', '', 'W', '', 'F', '', 'S'];
       // add day labels to first column
   weeks.push(
@@ -56,7 +54,23 @@ const habitDisplayData = getHabitDisplayData(habit, startDate);
     );
 
     if (week.length === 7 || i === habitDisplayData.length - 1) {
-      weeks.push(<div key={`week-${i}`} className="week-column flex flex-col">{week}</div>);
+      const hasFirstOfMonth = week.some((circle) => isFirstDayOfMonth(new Date(circle.props.date)));
+
+       const monthLabel = hasFirstOfMonth ? (
+        <div className="month-label text-sm font-bold mb-2">
+          {format(new Date(week.find((circle) => isFirstDayOfMonth(new Date(circle.props.date))).props.date), 'MMM')}
+        </div>
+      ) : null;
+
+
+      
+      weeks.push(<div key={`week-${i}`} className="week-column flex flex-col relative">
+        {hasFirstOfMonth && (
+            <div className="month-label items-center justify-center text-9 font-bold mb-2 h-4 whitespace-nowrap overflow-x-visible z-10 absolute -top-3.5  left-1/2 transform -translate-x-1/2">
+              {format(new Date(week.find((circle) => isFirstDayOfMonth(new Date(circle.props.date))).props.date), 'MMM')}
+            </div>
+          )}
+        {week}</div>);
       week = [];
     }
   }
@@ -67,9 +81,9 @@ const habitDisplayData = getHabitDisplayData(habit, startDate);
   const weeks = renderWeeks(habitDisplayData);
   
   return (
-    <div className = "py-3 px-4 w-full">
+    <div className = "mb-1 px-4 w-full mt-5">
       <div className="flex flex-wrap">
-      <div className="flex flex-col mr-4">
+      <div className="flex flex-col ml-1 mr-1">
          <div className="flex justify-center">
          <div className = " relative flex flex-col items-center">
           <div className="text-2xl font-bold flex ">
@@ -106,7 +120,7 @@ const habitDisplayData = getHabitDisplayData(habit, startDate);
         </div>
       </div>
         <div className="flex flex-col justify-center flex-grow">
-        <div className="w-full justify-center flex">
+        <div className="w-full justify-center flex items-end">
           {weeks}
         </div>
             <div className="flex justify-center mt-1">

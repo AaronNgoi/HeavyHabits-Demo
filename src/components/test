@@ -1,0 +1,29 @@
+weeks.push(
+  <div key={`week-${i}`} className="week-column flex flex-col">
+    <div className="month-label text-sm font-bold mb-2 h-5">
+      {hasFirstOfMonth && (
+        <div>
+          {format(
+            new Date(
+              week.find((circle) =>
+                isFirstDayOfMonth(new Date(circle.props.date))
+              ).props.date
+            ),
+            "MMM"
+          )}
+        </div>
+      )}
+    </div>
+
+
+
+      weeks.push(<div key={`week-${i}`} className="week-column flex flex-col">
+        {hasFirstOfMonth && (
+            <div className="month-label items-center justify-center text-9 font-bold mb-2 h-4">
+              {format(new Date(week.find((circle) => isFirstDayOfMonth(new Date(circle.props.date))).props.date), 'MMM')}
+            </div>
+          )}
+        {week}</div>);
+      week = [];
+    }
+  }

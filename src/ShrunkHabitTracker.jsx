@@ -43,7 +43,7 @@ const isCompleted = habit.completed_dates?.[new Date().toISOString().split("T")[
   };
 
   return (
-    <div className="standard-component relative flex flex-col items-stretch py-3 px-3">
+    <div className="standard-component relative flex flex-col items-stretch py-2 px-2">
       <div className="flex items-center justify-between">
       <div className="flex items-center space-x-3">
         <div className="-mr-1">
@@ -60,7 +60,7 @@ const isCompleted = habit.completed_dates?.[new Date().toISOString().split("T")[
       </div>
 <div className="">
   <button
-    className={`flex justify-center complete-today-btn rounded-17px m-1 ${
+    className={`flex justify-center complete-today-btn rounded-19px m-1 ${
       habit.completed_dates?.[formatDate(new Date())] === true
         ? 'completed'
         : ''

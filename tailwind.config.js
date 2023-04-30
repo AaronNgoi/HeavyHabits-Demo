@@ -5,12 +5,17 @@ module.exports = {
     extend: {
       margin: {
         '1px': '1px',
+        '44px': '35px'
       },
 
       borderRadius: {
       '22px': '22px',
-      '17px': '17px',
+      '19px': '19px',
     },
+
+      inset: {
+        '-3.5': '-14px',
+      },
       
       width: {
         '11': '11px',
@@ -19,6 +24,7 @@ module.exports = {
       height: {
         '11': '11px',
         '13': '13px',
+        '108': '108px',
       },      
 
       fontSize: {
@@ -36,13 +42,16 @@ module.exports = {
         'brown': {
 		       'font':'#571B09',
 	         'add-button':'#A16840',
-           'header-bottom': '#A97A40',
+           'component': '#A97A40',
            'border': '#BB925D',
+           'header-bottom': '#876233',
+           'pet-bg': '#B87647',
           },
         'biege': {
 		       'drop-down':'#EECFA0',
 	         'form-colour':'#FDEFD9',
            'display':'#FCE9CA', 
+           'background':'#F2DAB5',
         //    'header-bottom': '#A97A40',
           },
        },
