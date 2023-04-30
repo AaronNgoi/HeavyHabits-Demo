@@ -7,7 +7,6 @@ import { useLocation } from 'react-router-dom';
 import BackIcon from '../assets/back_icon.svg';
 import PageWrapper from '../components/PageWrapper';
 
-
 const AddHistoricalRecordPage = () => {
   const { habits, handleDelete, handleUpdate } = useHabits();
   const { habitId } = useLocation().state || {};

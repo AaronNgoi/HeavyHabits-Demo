@@ -13,6 +13,8 @@ import updateExpectedDatesForPreviousDay from './helpers/updateExpectedDatesForP
 // import testUpdateExpectedDatesForPreviousDay from './helpers/test/testUpdateExpectedDatesForPreviousDay';
 import addIncompleteHabitForYesterday from './helpers/addIncompleteHabitForYesterday';
 // import addMissingEntriesForAllDates from './helpers/addMissingEntriesForAllDates';
+import PetDisplay from './PetDisplay';
+import Header from './Header';
 
 const App = () => {
   const [habits, setHabits] = useLocalStorage('habits', []);
@@ -167,6 +169,9 @@ const App = () => {
     <HabitControlsContext.Provider value={{ openedControl, setOpenedControl}}>
       <Router>
         <div className="App">
+          {/* <Header text='TRACKER - TODAY'></Header> */}
+          <div className="bg-brown-pet-bg relative h-10"> </div>
+        <PetDisplay></PetDisplay>
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route path="/home" element={<HomePage/>} />

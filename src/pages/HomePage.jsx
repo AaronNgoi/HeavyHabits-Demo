@@ -7,7 +7,6 @@ import AddHabitIcon from '../assets/add_habit_icon.svg';
 import PageWrapper from '../components/PageWrapper';
 import ShrinkIcon from '../assets/Shrink.svg';
 import ExpandIcon from '../assets/Expand.svg';
-import PetDisplay from '../PetDisplay';
 
 const HomePage = () => {
   const { habits, handleDelete, handleUpdate } = useHabits();
@@ -20,11 +19,10 @@ const HomePage = () => {
   return (
     <div className="">
       <Header text="TRACKER - TODAY" />
-      <PetDisplay></PetDisplay>
       <PageWrapper>
         {
       <div className= "px-6">
-      <div className= "pt-2 pb-4">
+      <div className= "pt-3 pb-6">
         <div className= "flex justify-between">
         
           <button className="flex items-center justify-center text-lg bg-brown-add-button text-FCE3BF font-bold py-2 px-4 rounded-22px border-brown-font border-2">
