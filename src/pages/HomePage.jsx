@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from '../Header';
 import ShrunkHabitTracker from '../ShrunkHabitTracker';
 import { useHabits } from '../context/HabitContext';
