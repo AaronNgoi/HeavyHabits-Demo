@@ -60,7 +60,7 @@ const isCompleted = habit.completed_dates?.[new Date().toISOString().split("T")[
       </div>
 <div className="">
   <button
-    className={`flex justify-center complete-today-btn rounded-19px m-1 ${
+    className={` flex justify-center complete-today-btn rounded-19px m-1 ${
       habit.completed_dates?.[formatDate(new Date())] === true
         ? 'completed'
         : ''

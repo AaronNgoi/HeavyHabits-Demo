@@ -18,7 +18,10 @@ const AddHistoricalRecord = ({ habitId }) => {
 
   const habitCreatedDate = new Date(habit.habit_created_date);
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+
+  const [selectedDate, setSelectedDate] = useState(yesterday);
   const [successMessage, setSuccessMessage] = useState(null);
 
   const handleDateChange = (date) => {
@@ -77,7 +80,7 @@ const handleSubmit = () => {
         onChange={handleDateChange}
         dateFormat="dd/MM/yyyy"
         minDate={new Date(habitCreatedDateAdjusted.getTime() - 3 * 24 * 60 * 60 * 1000)}
-        maxDate={new Date()}
+        maxDate={yesterday}
         filterDate={(date) => date >= habitCreatedDateAdjusted}
         className="w-full"
       />

@@ -112,12 +112,12 @@ const { habitName, repeat_option, timesPerWeek, tickedDays, habitImportance } = 
       {onCancel ? (
   <div className="flex justify-between">
     <button
-      className="flex items-center justify-center bg-green text-FCE3BF font-bold text-biege-form-colour py-2 px-4 rounded-3xl w-full"
+      className="flex items-center justify-center bg-green text-FCE3BF font-bold text-biege-form-colour py-2 px-4 rounded-3xl w-full  hover:bg-green-clicked hover:scale-105 hover:border-green hover:shadow-md transition-all duration-200 active:translate-y-1 active:scale-95"
     >
       SAVE
     </button>
     <button
-      className="flex items-center justify-center bg-red text-FCE3BF font-bold text-biege-form-colour py-2 px-4 rounded-3xl w-full ml-4"
+      className="flex items-center justify-center bg-red text-FCE3BF font-bold text-biege-form-colour py-2 px-4 rounded-3xl w-full ml-4 hover:bg-red-clicked hover:scale-105 hover:border-green hover:shadow-md transition-all duration-200 active:translate-y-1 active:scale-95"
       type="button"
       onClick={onCancel}
     >
@@ -126,7 +126,7 @@ const { habitName, repeat_option, timesPerWeek, tickedDays, habitImportance } = 
   </div>
 ) : (
   <button
-    className="flex items-center justify-center bg-green text-FCE3BF font-bold text-biege-form-colour py-2 px-4 rounded-3xl w-full"
+    className="flex items-center justify-center bg-green text-FCE3BF font-bold text-biege-form-colour py-2 px-4 rounded-3xl w-full hover:bg-green-clicked hover:scale-105 hover:border-green hover:shadow-md transition-all duration-200 active:translate-y-1 active:scale-95"
   >
     SAVE
   </button>

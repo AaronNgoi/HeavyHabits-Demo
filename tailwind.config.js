@@ -1,5 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+
+    future: {
+    hoverOnlyWhenSupported: true,
+  },
+  
   content: ["./src/**/*.{js,jsx,html}"],
   theme: {
     extend: {
@@ -34,12 +39,23 @@ module.exports = {
         '11': '11px',
       },
 
+            boxShadow: {
+        'press-orange-button': '0 2px 0 0 #A97A40',
+        'press-brown-button': '0 2px 0 0 #571B09',
+      },
+
+            translate: {
+        '2px': '2px',
+      },
       
          colors: {
-          FCE3BF:'#FCE3BF',
-          FACE8F:'#FACE8F',
-         'green':"#94884B",
-           'red':"#995046",
+            FCE3BF:'#FCE3BF',
+           'green':"#94884B",
+   'green-clicked':"#A99C56",
+             'red':"#995046",
+     'red-clicked':"#B6685E",
+           
+           
         'brown': {
 		       'font':'#571B09',
 	         'add-button':'#A16840',
@@ -47,6 +63,7 @@ module.exports = {
            'border': '#BB925D',
            'header-bottom': '#876233',
            'pet-bg': '#B87647',
+           'button-press': '#754B2E',
           },
         'biege': {
 		       'drop-down':'#EECFA0',
@@ -54,6 +71,10 @@ module.exports = {
            'display':'#FCE9CA', 
            'background':'#F2DAB5',
         //    'header-bottom': '#A97A40',
+          },
+                   'orange': {
+		       'button-click':'#F7B759',
+	         'button':'#FACE8F',
           },
        },
     },

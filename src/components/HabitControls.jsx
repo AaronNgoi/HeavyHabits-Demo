@@ -57,26 +57,28 @@ const handleClickOutside = (event) => {
   
   return (
     <div id={generateMenuRef(habit.id)} ref={menuRef} className="flex justify-center">
-      <button onClick={toggleOptions}>
-        <img src={OptionsIcon} alt="More options" />
+      <button onClick={toggleOptions} className="">
+        <img src={OptionsIcon} alt="More options" className="ml-1 h-9 w-9 hover:scale-105 active:scale-110" />
       </button>
       {openedControl === habit.id && (
         <div className="absolute left-1 top-12 z-10">
-        <div className="px-6 py-4 rounded-2xl bg-biege-drop-down shadow-md drop-shadow-md  flex flex-col border-2 border-brown-border">
-          <Link to={`/habit/${habit.id}/edit`} className="flex items-center mb-4">
-            <button className="inline-flex items-center">
-              <img src={EditIcon} alt="Edit" />
-              <span className= "pl-2 font-bold">Edit</span>
+        <div className="px-1 py-1 rounded-22px bg-biege-drop-down shadow-md drop-shadow-md  flex flex-col border-2 border-brown-border">
+          <Link to={`/habit/${habit.id}/edit`} className="flex items-center rounded-2xl hover:bg-biege-display active:bg-biege-display">
+            <button className="ml-2 mr-2 my-3 px-2 inline-flex items-center ">
+              <img src={EditIcon} alt="Edit" className="" />
+              <span className= "pl-3 font-bold">Edit</span>
             </button>
           </Link>
-          <button onClick={handleDeleteModalClick} className="flex items-center mb-4">
+          <div className=" rounded-2xl hover:bg-biege-display active:bg-biege-display">
+          <button onClick={handleDeleteModalClick} className="ml-2 mr-2 my-3 px-2 flex items-center">
             <img src={DeleteIcon} alt="Delete" />
-            <span className= "pl-2 font-bold">Delete</span>
+            <span className= "pl-3 font-bold">Delete</span>
           </button>
-          <Link to={`/habit/${habit.id}/addRecord`} state={{ habitId: habit.id }} className="flex items-center">
-            <button onClick={handleAddRecordClick} className="inline-flex items-center">
+          </div>
+          <Link to={`/habit/${habit.id}/addRecord`} state={{ habitId: habit.id }} className="flex items-center rounded-2xl hover:bg-biege-display active:bg-biege-display">
+            <button onClick={handleAddRecordClick} className="ml-2 mr-2 my-3 px-2 inline-flex items-center">
               <img src={AddHistoricalRecordIcon} alt="Add Historical Record" />
-              <span className= "pl-2 font-bold">Add Record</span>
+              <span className= "pl-3 font-bold">Add Record</span>
             </button>
           </Link>
         </div>
