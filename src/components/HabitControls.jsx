@@ -69,8 +69,8 @@ const handleClickOutside = (event) => {
               <span className= "pl-3 font-bold">Edit</span>
             </button>
           </Link>
-          <div className=" rounded-2xl hover:bg-biege-display active:bg-biege-display">
-          <button onClick={handleDeleteModalClick} className="ml-2 mr-2 my-3 px-2 flex items-center">
+          <div onClick={handleDeleteModalClick} className=" rounded-2xl hover:bg-biege-display active:bg-biege-display cursor-pointer">
+          <button className="ml-2 mr-2 my-3 px-2 flex items-center">
             <img src={DeleteIcon} alt="Delete" />
             <span className= "pl-3 font-bold">Delete</span>
           </button>
