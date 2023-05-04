@@ -36,7 +36,7 @@ const handleComplete = () => {
     button.classList.remove('loading');
     completed_dates[today] = true
     handleUpdate({ ...habit, completed_dates })
-    }, 1600);
+    }, 1420);
   } else {
     delete completed_dates[today];
   }

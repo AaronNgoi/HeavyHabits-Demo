@@ -79,19 +79,27 @@ form {
 }
 
 .complete-today-btn.loading {
-  background-color: #FADDAD;
-  transform: scale(0.95)
+  background-color: #EECFA0;
+  transform: scale(0.95);
+  border-color: #BB925D;
+  --custom-ring-color: #BB925D;
+  --custom-ring-width: 6px;
+  box-shadow: 
+    0 0 0 3px #FDEFD9,
+    0 0 2px var(--custom-ring-width) var(--custom-ring-color)
+  ;
+  transition: background-color 1.6s ease, box-shadow 0.1s ease;
 }
 
 .loadingCircle {
   fill: transparent;
-  animation-duration: 0.75s;
+  animation-duration: 0.7s;
   animation-iteration-count: infinite;
   animation-name: loading;
   cy: 28;
 }
 
-.loadingCircle:nth-child(2) { animation-delay: .08s }
+.loadingCircle:nth-child(2) { animation-delay: .8s }
 .loadingCircle:nth-child(3) { animation-delay: .16s }
 
 .complete-today-btn.loading .loadingCircle {

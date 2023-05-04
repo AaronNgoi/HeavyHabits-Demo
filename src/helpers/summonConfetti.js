@@ -34,9 +34,11 @@ let sequins = []
 // colors, back side is darker for confetti flipping
 const colors = [
   { front : '#FACE8F', back: '#F7B759' }, // Orange
-  { front : '#A99C56', back: '#571B09' }, // Green
+  { front : '#A99C56', back: '#94884B' }, // Green
   { front : '#EECFA0', back: '#A16840' },  // Brown
-  { front : '#FCE9CA', back: '#EECFA0' }  // Biege
+  { front : '#FCE9CA', back: '#EECFA0' },  // Biege
+  { front : '#B6685E', back: '#571B09' }  // Red/Brown
+  // { front : '#B87647', back: '#571B09' }  // Brown2
 ]
 
 // helper function to pick a random number within a range
