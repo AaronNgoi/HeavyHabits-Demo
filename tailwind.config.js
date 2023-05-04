@@ -7,7 +7,7 @@ module.exports = {
   
   content: ["./src/**/*.{js,jsx,html}"],
   theme: {
-    extend: {
+    extend: {      
       margin: {
         '1px': '1px',
         '44px': '35px'

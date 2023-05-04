@@ -105,3 +105,34 @@ form {
   border: 3px solid #BB925D;
    font-size: 1.3em;
 }
+
+@media (max-width: 380px) {
+  .week-column-6 {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .week-column-6 {
+    display: none;
+  }
+}
+
+@media (max-width: 367px) {
+  .week-column-13 {
+    display: none;
+  }
+}
+
+@media (max-width: 353px) {
+  .week-column-20 {
+    display: none;
+  }
+}
+
+
+@media (max-width: 341px) {
+  .week-column-27 {
+    display: none;
+  }
+}

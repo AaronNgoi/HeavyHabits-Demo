@@ -64,7 +64,7 @@ const habitDisplayData = getHabitDisplayData(habit, startDate);
 
 
       
-      weeks.push(<div key={`week-${i}`} className="week-column flex flex-col relative">
+      weeks.push(<div key={`week-${i}`} className={`week-column-${i} flex flex-col relative`}>
         {hasFirstOfMonth && (
             <div className="month-label items-center justify-center text-9 font-bold mb-2 h-4 whitespace-nowrap overflow-x-visible z-10 absolute -top-3.5  left-1/2 transform -translate-x-1/2">
               {format(new Date(week.find((circle) => isFirstDayOfMonth(new Date(circle.props.date))).props.date), 'MMM')}
@@ -82,7 +82,7 @@ const habitDisplayData = getHabitDisplayData(habit, startDate);
   
   return (
     <div className = "mb-1 px-4 w-full mt-5">
-      <div className="flex flex-wrap">
+      <div className="flex">
       <div className="flex flex-col ml-1 mr-1">
          <div className="flex justify-center">
          <div className = " relative flex flex-col items-center">
@@ -106,8 +106,6 @@ const habitDisplayData = getHabitDisplayData(habit, startDate);
           </div>
        </div>
 
-
-
           <div className = "flex flex-col items-center justify-center">
           <div className="text-2xl font-bold flex ">
         {calculateStreak(habit)}
@@ -123,7 +121,7 @@ const habitDisplayData = getHabitDisplayData(habit, startDate);
         <div className="w-full justify-center flex items-end">
           {weeks}
         </div>
-            <div className="flex justify-center mt-1">
+            <div className="flex justify-center mt-1 overflow-x-auto whitespace-nowrap">
         <div className="flex items-center mr-2">
           <div className="w-3 h-3 bg-green rounded-full mr-1" />
           <span className= " font-bold text-11"> Done </span>
