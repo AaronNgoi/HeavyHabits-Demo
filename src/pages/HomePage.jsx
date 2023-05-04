@@ -36,6 +36,7 @@ const HomePage = () => {
               </Link>
           </button>
 
+          {habits.length > 0 && (
           <button onClick={toggleExpanded} className="flex items-center text-lg justify-center bg-orange-button text-brown-font font-bold py-2 px-4 rounded-22px border-brown-component rounded-22px border-2 shadow-press-orange-button active:bg-orange-button-click active:translate-y-2px active:shadow-none transition-all duration-100 hover:bg-orange-button-click">
               {expanded ? (
     <>
@@ -49,7 +50,7 @@ const HomePage = () => {
     </>
   )}    
           </button>
-
+        )}
           
         </div>
     </div>

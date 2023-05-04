@@ -6,6 +6,7 @@ import HabitControls from './components/HabitControls';
 import HabitControlsContext from './context/HabitControlsContext';
 import { formatDate } from './utils/dateUtils';
 import ExpandedHabitInfo from './components/ExpandedHabitInfo';
+import summonConfetti from './helpers/summonConfetti';
 
 
 const ShrunkHabitTracker = ({ habit, expanded }) => {
@@ -25,7 +26,17 @@ const handleComplete = () => {
   const today = formatDate(new Date());
 
   if (!completed_dates[today]) {
-    completed_dates[today] = true;
+    const idAsString = String(habit.id);
+    const button = document.getElementById(`button-${idAsString}`);
+    button.disabled = true;
+    button.classList.add('loading');
+    setTimeout(() => {
+    summonConfetti(idAsString);
+    button.disabled = false;
+    button.classList.remove('loading');
+    completed_dates[today] = true
+    handleUpdate({ ...habit, completed_dates })
+    }, 1600);
   } else {
     delete completed_dates[today];
   }
@@ -59,20 +70,29 @@ const isCompleted = habit.completed_dates?.[new Date().toISOString().split("T")[
         <HabitHeader habitName={habit.habit_name} habitSubtext={habit.habit_subtext}/>
       </div>
 <div className="">
-  <button
+  <button id={`button-${habit.id}`}
     className={` flex justify-center complete-today-btn rounded-19px m-1 ${
       habit.completed_dates?.[formatDate(new Date())] === true
         ? 'completed'
         : ''
  }`}
-    onClick={handleComplete}
+    onClick={() => {
+  handleComplete();
+    }}
   >
     {habit.completed_dates?.[formatDate(new Date())] === true ? '✓' : '✓'}
-  </button>
+   <div className="absolute message loadingMessage h-10 w-10">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" className="h-10 w-10">
+      <circle className="loadingCircle" cx="11" cy="28" r="2"/>
+      <circle className="loadingCircle" cx="20" cy="28" r="2"/>
+      <circle className="loadingCircle" cx="29" cy="28" r="2"/>
+    </svg>
+  </div>
+</button>
 </div>
     </div>
       {expanded && <ExpandedHabitInfo habit = {habit} />}
-    </div>
+    </div>    
   );
 };
 

@@ -167,6 +167,7 @@ const App = () => {
   return (
     <HabitProvider value={{ habits, handleAddNewHabit, handleDelete, handleUpdate }}>
     <HabitControlsContext.Provider value={{ openedControl, setOpenedControl}}>
+     <canvas id="canvas" style={{position: 'fixed', top: '0px', left: '0px', pointerEvents: 'none', zIndex: 100, height: '100vh', width: '100%'}}></canvas>
       <Router>
         <div className="App">
           {/* <Header text='TRACKER - TODAY'></Header> */}
