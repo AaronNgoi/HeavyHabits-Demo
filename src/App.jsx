@@ -82,6 +82,8 @@ const App = () => {
             <Route path="/habit/:id/edit" element={<EditHabitPage />} />
             <Route path="/habit/:id/addRecord" element={<AddHistoricalRecordPage />} />
             <Route path="/reorderHabits" element={<ReorderHabitsPage />} />
+            {/* <Route path="/reportWeek" element={<ReportWeekPage />} /> */}
+            {/* <Route path="/reportMonth" element={<ReportMonthPage />} /> */}
           </Routes>
         </div>
       </Router>
