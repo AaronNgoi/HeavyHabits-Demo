@@ -10,7 +10,8 @@ module.exports = {
     extend: {      
       margin: {
         '1px': '1px',
-        '44px': '35px'
+        '106px': '106px',
+        '148px': '148px',
       },
 
       borderRadius: {
@@ -78,6 +79,7 @@ module.exports = {
                    'orange': {
 		       'button-click':'#F7B759',
 	         'button':'#FACE8F',
+           'direction':'#eb964c',
           },
        },
     },
