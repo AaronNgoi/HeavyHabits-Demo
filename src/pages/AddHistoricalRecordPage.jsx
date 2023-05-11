@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import Header from '../Header';
 import { useHabits } from '../context/HabitContext';
 import AddHistoricalRecord from '../components/AddHistoricalRecord';

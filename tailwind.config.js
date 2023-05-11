@@ -42,6 +42,7 @@ module.exports = {
             boxShadow: {
         'press-orange-button': '0 2px 0 0 #A97A40',
         'press-brown-button': '0 2px 0 0 #571B09',
+        'press-green-button': '0 2px 0 0 #58512D',      
       },
 
             translate: {
@@ -51,7 +52,9 @@ module.exports = {
          colors: {
             FCE3BF:'#FCE3BF',
            'green':"#94884B",
+      'dark-green':"#7A703E",
    'green-clicked':"#A99C56",
+    'green-border':"#58512D",
              'red':"#995046",
      'red-clicked':"#B6685E",
            

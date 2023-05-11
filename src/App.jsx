@@ -6,6 +6,7 @@ import EditHabitPage from './pages/EditHabitPage';
 import HomePage from './pages/HomePage';
 import useLocalStorage from './hooks/useLocalStorage';
 import AddHistoricalRecordPage from './pages/AddHistoricalRecordPage';
+import ReorderHabitsPage from './pages/ReorderHabitsPage';
 import { HabitProvider } from './context/HabitContext';
 import HabitControlsContext from './context/HabitControlsContext';
 import updateExpectedDatesForPreviousDay from './helpers/updateExpectedDatesForPreviousDay';
@@ -28,8 +29,6 @@ const App = () => {
 
     setHabits(newHabits);
   };
-
-
 
   const handleUpdate = (updatedHabit) => {
     const newHabits = habits.map((habit) =>
@@ -68,7 +67,7 @@ const App = () => {
 }, []);
 
   return (
-    <HabitProvider value={{ habits, handleAddNewHabit, handleDelete, handleUpdate }}>
+    <HabitProvider value={{ habits, handleAddNewHabit, handleDelete, handleUpdate, setHabits }}>
     <HabitControlsContext.Provider value={{ openedControl, setOpenedControl}}>
      <canvas id="canvas" style={{position: 'fixed', top: '0px', left: '0px', pointerEvents: 'none', zIndex: 100, height: '100vh', width: '100%'}}></canvas>
       <Router>
@@ -82,6 +81,7 @@ const App = () => {
             <Route path="/habit/new" element={<NewHabitPage />} />
             <Route path="/habit/:id/edit" element={<EditHabitPage />} />
             <Route path="/habit/:id/addRecord" element={<AddHistoricalRecordPage />} />
+            <Route path="/reorderHabits" element={<ReorderHabitsPage />} />
           </Routes>
         </div>
       </Router>
