@@ -55,8 +55,8 @@ const isCompleted = habit.completed_dates?.[new Date().toISOString().split("T")[
 
   return (
     <div className="standard-component relative flex flex-col items-stretch py-2 px-2">
-      <div className="flex items-center justify-between">
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center justify-between flex-grow">
+      <div className="flex items-center space-x-3 whitespace-nowrap overflow-hidden overflow-ellipsis">
         <div className="-mr-1">
         <HabitControls
           habit={habit}
@@ -69,7 +69,7 @@ const isCompleted = habit.completed_dates?.[new Date().toISOString().split("T")[
           </div>
         <HabitHeader habitName={habit.habit_name} habitSubtext={habit.habit_subtext}/>
       </div>
-<div className="">
+<div className="flex">
   <button id={`button-${habit.id}`}
     className={` flex justify-center complete-today-btn rounded-19px m-1 ${
       habit.completed_dates?.[formatDate(new Date())] === true

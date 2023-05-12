@@ -10,11 +10,10 @@ import ReorderHabitsPage from './pages/ReorderHabitsPage';
 import { HabitProvider } from './context/HabitContext';
 import HabitControlsContext from './context/HabitControlsContext';
 import updateExpectedDatesForPreviousDay from './helpers/updateExpectedDatesForPreviousDay';
-// import testUpdateExpectedDatesForPreviousDay from './helpers/test/testUpdateExpectedDatesForPreviousDay';
 import addIncompleteHabitForYesterday from './helpers/addIncompleteHabitForYesterday';
-// import addMissingEntriesForAllDates from './helpers/addMissingEntriesForAllDates';
 import PetDisplay from './PetDisplay';
-import Header from './Header';
+import ReportWeekPage from './pages/ReportWeekPage';
+import ReportMonthPage from './pages/ReportMonthPage';
 
 const App = () => {
   const [habits, setHabits] = useLocalStorage('habits', []);
@@ -82,8 +81,8 @@ const App = () => {
             <Route path="/habit/:id/edit" element={<EditHabitPage />} />
             <Route path="/habit/:id/addRecord" element={<AddHistoricalRecordPage />} />
             <Route path="/reorderHabits" element={<ReorderHabitsPage />} />
-            {/* <Route path="/reportWeek" element={<ReportWeekPage />} /> */}
-            {/* <Route path="/reportMonth" element={<ReportMonthPage />} /> */}
+            <Route path="/reportWeek" element={<ReportWeekPage />} />
+            <Route path="/reportMonth" element={<ReportMonthPage />} />
           </Routes>
         </div>
       </Router>
