@@ -17,6 +17,7 @@ module.exports = {
       borderRadius: {
       '22px': '22px',
       '19px': '19px',
+      '36px': '32px',
     },
 
       inset: {
@@ -36,6 +37,7 @@ module.exports = {
 
       maxWidth: {
         '136px': '136px',
+        '176px': '168px',
       },
       
       fontSize: {
@@ -72,6 +74,7 @@ module.exports = {
            'header-bottom': '#876233',
            'pet-bg': '#B87647',
            'button-press': '#754B2E',
+           'nav-bar': "#A0673E",
           },
         'biege': {
 		       'drop-down':'#EECFA0',

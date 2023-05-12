@@ -38,7 +38,7 @@ function ReorderHabits() {
   
   return (
           <div className="px-3">
-      <div className="px-3 pt-3 pb-6 flex justify-between items-center">
+      <div className="px-3 pt-3 pb-3 flex justify-between items-center">
         
           <button className="flex items-center justify-center text-lg bg-brown-add-button text-FCE3BF font-bold py-2 px-4 border-brown-font border-2 rounded-22px shadow-press-brown-button active:bg-brown-button-press active:translate-y-2px active:shadow-none transition-all duration-100 hover:bg-brown-button-presss">
         <Link to="/">    

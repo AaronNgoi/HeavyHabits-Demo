@@ -176,12 +176,12 @@ function displayHabitMonth(habit, monthDateArray) {
 })}
 
             <div className="habit-stats flex flex-row space-x-2 mt-2 items-center justify-center">
-        <div className="flex flex-row items-center align-center space-x-1">
+        <div className="font-bold text-sm flex flex-row items-center align-center space-x-1">
           <img src= {sumIcon} alt="sumIcon" className="flex ml-3 h-3 w-3 "/>
               <div> {totalCompletedDates} <span className="-ml-1"> d</span></div>
           </div>
         
-           <div className="flex flex-row items-center align-center space-x-1">   
+           <div className="font-bold text-sm flex flex-row items-center align-center space-x-1">   
              <img src= {consistencyIcon} alt="consistencyIcon" className="flex ml-3 h-3 w-3 "/> 
              <div>{percentage}%</div>
             </div>  
@@ -199,10 +199,10 @@ function displayHabitMonth(habit, monthDateArray) {
               <button onClick={nextMonth}><img src= {navigateRight} alt="navigateRight" className="-top-16 ml-106px absolute z-40 flex h-44 hover:scale-105"/></button>
               </div>
           </div>
-      <div className="pt-3 pb-6 flex justify-between items-center">
+      <div className="pt-2 pb-2 flex justify-between items-center">
         
           <button className="flex items-center justify-center text-lg bg-brown-add-button text-FCE3BF font-bold py-2 px-4 border-brown-font border-2 rounded-22px shadow-press-brown-button active:bg-brown-button-press active:translate-y-2px active:shadow-none transition-all duration-100 hover:bg-brown-button-presss">
-        <Link to="/reportweek" className="flex flex-row items-center align-center">    
+        <Link to="/reportweek" className="flex flex-row items-center align-center ">    
           <span className="ml-1 flex">Week</span>
           <img src= {WeekIcon} alt="Back" className="flex ml-3 h-6 w-6 "/>
         </Link>  
@@ -220,9 +220,9 @@ function displayHabitMonth(habit, monthDateArray) {
     </div>
 
    <div {...handlers}>     
-   <div className="px-4 flex flex-wrap justify-between">
+   <div className="px-4 flex flex-wrap justify-evenly">
      {habits.map(habit => (
-  <div key={habit.habit_name} className="standard-component mt-3 mx-2 px-2 space-y-2 py-2 flex flex-col items-center justify-center flex-grow">
+  <div key={habit.habit_name} className="standard-component mt-3 px-1 mx-2 space-y-2 py-2 flex flex-col items-center justify-center flex-grow max-w-176px">
     <p className="font-bold whitespace-nowrap overflow-hidden overflow-ellipsis max-w-136px">{habit.habit_name}</p>
     <div className="month-display flex flex-col space-y-1">
       {displayHabitMonth(habit, monthDateArray)}

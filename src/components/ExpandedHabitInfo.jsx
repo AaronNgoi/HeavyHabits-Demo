@@ -81,9 +81,9 @@ const habitDisplayData = getHabitDisplayData(habit, startDate);
   const weeks = renderWeeks(habitDisplayData);
   
   return (
-    <div className = "mb-1 px-4 w-full mt-5">
-      <div className="flex">
-      <div className="flex flex-col ml-1 mr-1">
+    <div className = "py-1 px-4 w-full mt-5">
+      <div className="flex justify-around">
+      <div className="flex flex-col pr-4">
          <div className="flex justify-center">
          <div className = " relative flex flex-col items-center">
           <div className="ml-2 text-2xl font-bold flex ">
@@ -117,7 +117,7 @@ const habitDisplayData = getHabitDisplayData(habit, startDate);
         
         </div>
       </div>
-        <div className="flex flex-col justify-center flex-grow">
+        <div className="flex flex-col justify-center">
         <div className="w-full justify-center flex items-end">
           {weeks}
         </div>

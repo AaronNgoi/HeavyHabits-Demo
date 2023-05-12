@@ -14,6 +14,7 @@ import addIncompleteHabitForYesterday from './helpers/addIncompleteHabitForYeste
 import PetDisplay from './PetDisplay';
 import ReportWeekPage from './pages/ReportWeekPage';
 import ReportMonthPage from './pages/ReportMonthPage';
+import BottomNav from './components/BottomNav';
 
 const App = () => {
   const [habits, setHabits] = useLocalStorage('habits', []);
@@ -74,6 +75,7 @@ const App = () => {
           {/* <Header text='TRACKER - TODAY'></Header> */}
           <div className="bg-brown-pet-bg relative h-44"> </div>
         <PetDisplay></PetDisplay>
+        <BottomNav></BottomNav>
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route path="/home" element={<HomePage/>} />
