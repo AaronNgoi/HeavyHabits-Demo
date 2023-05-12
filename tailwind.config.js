@@ -34,6 +34,10 @@ module.exports = {
         '108': '108px',
       },      
 
+      maxWidth: {
+        '136px': '136px',
+      },
+      
       fontSize: {
         '9': '9px',
         '10': '10px',

@@ -86,7 +86,7 @@ const habitDisplayData = getHabitDisplayData(habit, startDate);
       <div className="flex flex-col ml-1 mr-1">
          <div className="flex justify-center">
          <div className = " relative flex flex-col items-center">
-          <div className="text-2xl font-bold flex ">
+          <div className="ml-2 text-2xl font-bold flex ">
         {calculateConsistency(habit)} <span className="text-base font-normal self-end">% </span>
         </div>
           <div className="flex items-center text-xs font-bold -mt-1">

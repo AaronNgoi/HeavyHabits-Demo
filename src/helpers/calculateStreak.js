@@ -1,12 +1,20 @@
+import { parse, compareAsc } from 'date-fns';
+
 function calculateStreak(habit) {
   const completedDates = habit.completed_dates;
   const expectedDates = habit.expected_dates;
   let currentStreak = 0;
 
-  for (const date in completedDates) {
-    if (completedDates[date]) {
+  const sortedDates = Object.keys(completedDates)
+    .map((dateString) => parse(dateString, 'dd/MM/yyyy', new Date()))
+    .sort(compareAsc);
+
+  for (const date of sortedDates) {
+    const dateString = date.toLocaleDateString('en-GB'); // Convert Date object back to string
+
+    if (completedDates[dateString]) {
       currentStreak++;
-    } else if (expectedDates[date]) {
+    } else if (expectedDates[dateString]) {
       currentStreak = 0;
     }
   }

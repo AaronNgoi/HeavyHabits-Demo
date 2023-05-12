@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import MonthIcon from '../assets/monthIcon.svg';
 import { Link } from 'react-router-dom';
-import CircleDateDisplay from '../utils/circleDateDisplay';
 import { useHabits } from '../context/HabitContext';
-import { startOfWeek, endOfWeek, addWeeks, subWeeks, format, isSameYear, isSameMonth, eachDayOfInterval } from 'date-fns';
+import { startOfWeek, endOfWeek, addWeeks, subWeeks, format, isSameYear, isSameMonth, eachDayOfInterval, parse, compareAsc } from 'date-fns';
 import navigateLeft from '../assets/navigateLeft.svg';
 import navigateRight from '../assets/navigateRight.svg';
 import {getHabitWeekDisplay} from '../helpers/getHabitWeekDisplay';
 import CircleWeekDisplay from '../utils/circleWeekDisplay';
+import { useSwipeable } from 'react-swipeable';
 
 function ReportWeek() {
 
-  const { habits, setHabits } = useHabits();
+  const { habits} = useHabits();
   const [displayedWeekStart, setDisplayedWeekStart] = useState(startOfWeek(new Date(), { weekStartsOn: 1 }));
   const [displayedWeekEnd, setDisplayedWeekEnd] = useState(endOfWeek(new Date(), { weekStartsOn: 1 }));
  
@@ -31,11 +31,9 @@ function generateWeekDates(start, end) {
 }
 
 const weekDates = generateWeekDates(displayedWeekStart, displayedWeekEnd);
-
+  
 function displayHabitWeek(habit, dates) {
   const habitWeekData = getHabitWeekDisplay(habit, dates);
-
-  console.log("habitWeekData", habitWeekData)
   
   return habitWeekData.map(dayData => (
     <CircleWeekDisplay
@@ -48,6 +46,99 @@ function displayHabitWeek(habit, dates) {
   ));
 }
 
+const handlers = useSwipeable({
+    delta: 50,
+    onSwipedLeft: () => previousWeek(),
+    onSwipedRight: () => nextWeek(),
+
+   onTap: ({ event }) => {
+    // Check if the tap is near the edge of the screen
+    const { clientX } = event.touches[0] || event.changedTouches[0];
+    const screenWidth = window.innerWidth;
+    const edgeThreshold = 50; // Adjust the threshold as needed
+
+    if (clientX <= edgeThreshold) {
+      previousWeek();
+    } else if (clientX >= screenWidth - edgeThreshold) {
+      nextWeek();
+    }
+  },
+  });  
+
+  
+function calculateTotalDoneWeekly(habits, weekDates) {
+  let count = 0;
+
+  habits.forEach((habit) => {
+    weekDates.forEach((date) => {
+      if (habit.completed_dates[date] && habit.completed_dates[date] === true) {
+        count++;
+      }
+    });
+  });
+
+  return count;
+}
+
+function calculateBestStreak(habits, DisplayedWeekEnd) {
+  let bestStreak = 0;
+  const today = new Date();
+
+  habits.forEach((habit) => {
+    const completedDates = habit.completed_dates;
+    const expectedDates = habit.expected_dates;
+    let currentStreak = 0;
+
+    if (DisplayedWeekEnd > today) {
+      DisplayedWeekEnd = today;
+    }
+
+    if (DisplayedWeekEnd < parse(habit.habit_created_date, 'dd/MM/yyyy', new Date())) {
+      currentStreak = 0;
+    } else {
+      const sortedDates = Object.keys(completedDates)
+        .map((dateString) => parse(dateString, 'dd/MM/yyyy', new Date()))
+        .sort(compareAsc);
+
+      for (const date of sortedDates) {
+        if (date <= DisplayedWeekEnd) {
+          const dateString = format(date, 'dd/MM/yyyy');
+
+          if (completedDates[dateString]) {
+            currentStreak++;
+          } else if (expectedDates[dateString]) {
+            currentStreak = 0;
+          }
+        }
+      }
+    }
+
+    bestStreak = Math.max(bestStreak, currentStreak);
+
+  });
+
+  return bestStreak;
+}
+
+function calculatePercentageMet(habits, weekDates) {
+  let totalExpected = 0;
+  let totalDone = 0;
+
+  habits.forEach((habit) => {
+    const habitWeekData = getHabitWeekDisplay(habit, weekDates);
+
+    habitWeekData.forEach((dayData) => {
+      if (dayData.expected_date) {
+        totalExpected++;
+      }
+      if (dayData.completed_date) {
+        totalDone++;
+      }
+    });
+  });
+
+  return totalExpected === 0 ? 0 : Math.round((totalDone / totalExpected) * 100);
+}
   
   
   return (
@@ -84,7 +175,10 @@ function displayHabitWeek(habit, dates) {
 </div>
       </div>
         </div> 
-      <div className="standard-component px-4 py-6 space-y-4 ">
+    </div>
+
+         <div {...handlers} className="px-6">   
+      <div className="standard-component px-4 py-6 space-y-4 mb-6">
         {habits.map(habit => (
   <div key={habit.habit_name} className="flex justify-between ">
     <p className="font-bold whitespace-nowrap overflow-hidden overflow-ellipsis">{habit.habit_name}</p>
@@ -96,10 +190,30 @@ function displayHabitWeek(habit, dates) {
       </div>
 
       
-       {}
+       <div className="standard-component px-4 py-3 space-y-3 flex flex-col">
+          <p className="font-bold text-xl text-center">Week in Review</p>
+          <div className="flex flex-row">
+            <div className="flex flex-col text-center flex-grow-0" style={{ flexBasis: '50%' }}>
+               <p className="text-2xl font-bold">{calculateTotalDoneWeekly(habits,weekDates)} </p>
+              <p className="text-sm font-bold">Total Done</p>
+            </div>
+           <div className="flex flex-col items-center justify-start text-center flex-grow" style={{ flexBasis: 'auto'}}>
+            <p className="ml-2 text-2xl font-bold"> {calculatePercentageMet(habits, weekDates)} 
+              <span className="text-base font-normal self-end">%</span> </p>
+            <p className="text-sm font-bold">Met</p>
+          </div>  
+            <div className="flex flex-col items-center flex-grow-0 text-center justify-start" style={{ flexBasis: '50%' }}>
+              <p className="text-2xl font-bold">{calculateBestStreak(habits, displayedWeekEnd)}</p>
+              <p className="text-sm font-bold">Best Streak</p>
+         </div>  
+          </div>
+        </div>
 
-    </div>
-  
+
+</div>
+
+
+        
   </>
   );
 }

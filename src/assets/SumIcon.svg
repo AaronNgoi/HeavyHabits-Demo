@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="uuid-11f8dd6b-68dd-48c3-84ef-3ad46feed008" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.89 22.89">
+  <defs>
+    <style>
+      .uuid-0057c40e-86f5-4511-8169-ade0bdd9a6a2 {
+        fill: none;
+        stroke: #571b09;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <path class="uuid-0057c40e-86f5-4511-8169-ade0bdd9a6a2" d="m1,6.22v15.67"/>
+  <path class="uuid-0057c40e-86f5-4511-8169-ade0bdd9a6a2" d="m11.44,11.44v10.44"/>
+  <path class="uuid-0057c40e-86f5-4511-8169-ade0bdd9a6a2" d="m21.89,1v20.89"/>
+</svg>
