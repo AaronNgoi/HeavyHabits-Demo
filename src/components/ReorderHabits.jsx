@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { useHabits } from '../context/HabitContext';
-import ReorderIcon from '../assets/reorder.svg';
+import ReorderIcon from '../assets/Regroup.svg';
 import BackIcon from '../assets/back_icon.svg';
 import SaveIcon from '../assets/save.svg';
 import { Link } from 'react-router-dom';
@@ -70,7 +70,7 @@ function ReorderHabits() {
                     className="standard-component flex items-center py-2 px-2  active:bg-green-clicked active:text-FCE3BF active:border-green-border hover:scale-105"
                     >
                     <div className="flex items-center justify-center h-10 w-10 m-1">
-                    <img src={ReorderIcon} alt="Reorder Icon" className=" flex h-5 w-5 stroke-white" />
+                    <img src={ReorderIcon} alt="Reorder Icon" className=" flex h-6 w-6 stroke-white" />
                     </div>
                     <div className="text-xl font-bold">{habit.habit_name}</div>
                  

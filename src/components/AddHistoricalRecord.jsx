@@ -72,9 +72,9 @@ const handleSubmit = () => {
     <div className="standard-component p-8 text-lg font-bold flex flex-col gap-4 shadow-md drop-shadow-md  pb-8">
       <div className="standard-page flex items-center">
         <img src={AddHistoricalRecordIcon} alt="Add Record" />
-        <p style={{ fontSize: 18 }} className="ml-4">Add Record for {habit.habit_name}</p>
+        <p className="ml-4">Add Record for {habit.habit_name}</p>
       </div>
-      <p style={{ fontSize: 18 }}>When?</p>
+      <p> When?</p>
       <DatePicker
         selected={selectedDate}
         onChange={handleDateChange}

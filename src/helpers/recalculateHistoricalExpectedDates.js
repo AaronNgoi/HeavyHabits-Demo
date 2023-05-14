@@ -21,6 +21,12 @@ const recalculateHistoricalExpectedDates = (habit, completionDate, today = new D
     const dayOfWeek = getDayOfWeek(date);
     let isExpected = false;
 
+     // Added this in to fix historical habits calculating over toda's date. text next week  
+      if (date.getTime() > today.getTime()) {
+      break;
+    }
+
+    
     if (habit.repeat_option === 'Ticked Days') {
       isExpected = habit.repeat_days.includes(dayOfWeek);
     } else if (habit.repeat_option === 'Weekly') {
