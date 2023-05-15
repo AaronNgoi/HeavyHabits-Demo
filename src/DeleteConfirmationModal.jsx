@@ -6,7 +6,7 @@ const DeleteConfirmationModal = ({ habitName, onDelete, onClose }) => {
       <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="bg-biege-form-colour p-6 mx-auto max-w-md rounded-3xl shadow-lg z-10">
         <h3 className="text-2xl text-center mb-4 font-bold">Are you sure?</h3>
-          <p className="text-center mb-4">
+          <p className="text-center mb-4 whitespace-normal">
             <span className="font-bold">Warning:</span> Deleting this habit will permanently remove all associated records.
           </p>
         <div className="flex justify-center">
