@@ -1,17 +1,5 @@
-## Running React on Repl.it
+## For a write-Up about Heavy Habits Demo see - https://personalportfoliowebsite.aaronngoi.repl.co/heavyhabits
 
-[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
+Creating a user-friendly web app that empowers users to improve their lives has always excited me. My endeavour, Heavy Habits, is a manifestation of this vision, designed to help users track their habits and effortlessly review their progress.
 
-[Vite](https://vitejs.dev/) is a blazing fast frontend build tool that includes features like Hot Module Reloading (HMR), optimized builds, and TypeScript support out of the box.
-
-Using the two in conjunction is one of the fastest ways to build a web app.
-
-### Getting Started
-- Hit run
-- Edit [App.jsx](#src/App.jsx) and watch it live update!
-
-By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
-
-### Typescript
-
-Just rename any file from `.jsx` to `.tsx`. You can also try our [TypeScript Template](https://replit.com/@replit/React-TypeScript)
+Heavy Habits is a work in progress, and I invite collaboration and feedback. Your feedback is invaluable, and for those interested in contributing, please reach out. Together, we can make habit tracking effortless and enjoyable.
