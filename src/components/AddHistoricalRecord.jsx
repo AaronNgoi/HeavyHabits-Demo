@@ -69,7 +69,7 @@ const handleSubmit = () => {
 
 
   return (
-    <div className="standard-component p-8 text-lg font-bold flex flex-col gap-4 shadow-md drop-shadow-md  pb-8">
+    <div className="standard-component p-8 text-lg flex flex-col gap-4 shadow-md drop-shadow-md  pb-8">
       <div className="standard-page flex items-center">
         <img src={AddHistoricalRecordIcon} alt="Add Record" />
         <p className="ml-4">Add Record for {habit.habit_name}</p>
@@ -85,8 +85,8 @@ const handleSubmit = () => {
         className="w-full"
       />
       <div className="flex justify-between">
-      <button onClick={handleSubmit} className="flex items-center justify-center bg-green text-FCE3BF font-bold text-biege-form-colour py-2 px-4 rounded-3xl w-full">Save</button>
-      <button onClick={() => navigate('/')} className="flex items-center justify-center bg-red text-FCE3BF font-bold text-biege-form-colour py-2 px-4 rounded-3xl w-full ml-4">Cancel</button>
+      <button onClick={handleSubmit} className="flex items-center justify-center bg-green text-FCE3BF text-biege-form-colour py-2 px-4 rounded-3xl w-full">Save</button>
+      <button onClick={() => navigate('/')} className="flex items-center justify-center bg-red text-FCE3BF text-biege-form-colour py-2 px-4 rounded-3xl w-full ml-4">Cancel</button>
     </div>
       </div>
   );

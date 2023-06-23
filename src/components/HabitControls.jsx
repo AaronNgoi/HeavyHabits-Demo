@@ -66,19 +66,19 @@ const handleClickOutside = (event) => {
           <Link to={`/habit/${habit.id}/edit`} className="flex items-center rounded-2xl hover:bg-biege-display active:bg-biege-display">
             <button className="ml-2 mr-2 my-3 px-2 inline-flex items-center ">
               <img src={EditIcon} alt="Edit" className="" />
-              <span className= "pl-3 font-bold">Edit</span>
+              <span className= "pl-3">Edit</span>
             </button>
           </Link>
           <div onClick={handleDeleteModalClick} className=" rounded-2xl hover:bg-biege-display active:bg-biege-display cursor-pointer">
           <button className="ml-2 mr-2 my-3 px-2 flex items-center">
             <img src={DeleteIcon} alt="Delete" />
-            <span className= "pl-3 font-bold">Delete</span>
+            <span className= "pl-3">Delete</span>
           </button>
           </div>
           <Link to={`/habit/${habit.id}/addRecord`} state={{ habitId: habit.id }} className="flex items-center rounded-2xl hover:bg-biege-display active:bg-biege-display">
             <button onClick={handleAddRecordClick} className="ml-2 mr-2 my-3 px-2 inline-flex items-center">
               <img src={AddHistoricalRecordIcon} alt="Add Historical Record" />
-              <span className= "pl-3 font-bold">Add Record</span>
+              <span className= "pl-3">Add Record</span>
             </button>
           </Link>
         </div>

@@ -40,16 +40,16 @@ function ReorderHabits() {
           <div className="px-3">
       <div className="px-3 pt-3 pb-3 flex justify-between items-center">
         
-          <button className="flex items-center justify-center text-lg bg-brown-add-button text-FCE3BF font-bold py-2 px-4 border-brown-font border-2 rounded-22px shadow-press-brown-button active:bg-brown-button-press active:translate-y-2px active:shadow-none transition-all duration-100 hover:bg-brown-button-presss">
+          <button className="flex items-center justify-center text-lg bg-brown-add-button text-FCE3BF py-2 px-4 border-brown-font border-2 rounded-22px shadow-press-brown-button active:bg-brown-button-press active:translate-y-2px active:shadow-none transition-all duration-100 hover:bg-brown-button-presss">
         <Link to="/">    
           <img src= {BackIcon} alt="Back" className="h-5 w-5 inline-block"/>
           <span className="ml-2">Back</span>
         </Link>  
           </button>
 
-        {!showSaveButton && <span className="flex font-bold pl-3 text-lg text-right">Drag to reorder habits</span>}
+        {!showSaveButton && <span className="flex pl-3 text-lg text-right">Drag to reorder habits</span>}
         {showSaveButton && (
-          <button className="flex items-center justify-center text-lg bg-green text-FCE3BF font-bold py-2 px-4 border-green-border border-2 rounded-22px shadow-press-green-button active:bg-dark-green active:translate-y-2px active:shadow-none transition-all duration-100 hover:bg-dark-green" onClick={handleSave}>
+          <button className="flex items-center justify-center text-lg bg-green text-FCE3BF py-2 px-4 border-green-border border-2 rounded-22px shadow-press-green-button active:bg-dark-green active:translate-y-2px active:shadow-none transition-all duration-100 hover:bg-dark-green" onClick={handleSave}>
           <img src= {SaveIcon} alt="Save" className="h-5 w-5 inline-block"/>
           <span className="ml-2">SAVE</span>
           </button>
@@ -72,7 +72,7 @@ function ReorderHabits() {
                     <div className="flex items-center justify-center h-10 w-10 m-1">
                     <img src={ReorderIcon} alt="Reorder Icon" className=" flex h-6 w-6 stroke-white" />
                     </div>
-                    <div className="text-xl font-bold">{habit.habit_name}</div>
+                    <div className="text-xl">{habit.habit_name}</div>
                  
                   </li>
                 )}

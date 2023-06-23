@@ -56,12 +56,12 @@ const { habitName, repeat_option, timesPerWeek, tickedDays, habitImportance } = 
 
   
   return (
-    <form onSubmit={handleSubmit} className="p-8 text-lg font-bold flex flex-col gap-4 shadow-md drop-shadow-md pb-8">
+    <form onSubmit={handleSubmit} className="p-8 text-lg flex flex-col gap-4 shadow-md drop-shadow-md pb-8">
       <div  className="flex items-center justify-between">
         <label className="w-full">
         Habit Name:
           <div className="input-wrapper flex-1 w-full"> 
-            <input type="text" name="habitName" value={habitName} onChange={handleChange} className="w-full text-base font-normal pl-4" required/>
+            <input type="text" name="habitName" value={habitName} onChange={handleChange} className="w-full text-base font-normal font-itim pl-4" required/>
           </div>
       </label>
         </div>
@@ -69,7 +69,7 @@ const { habitName, repeat_option, timesPerWeek, tickedDays, habitImportance } = 
       <label className="mr-4">
         Repeat:
       </label>
-            <select name="repeat_option" value={repeat_option} onChange={handleChange} className="text-base font-normal">
+            <select name="repeat_option" value={repeat_option} onChange={handleChange} className="text-base font-itim font-normal">
               <option value="Weekly">Weekly</option>
               <option value="Ticked Days">Ticked Days</option>
               </select>
@@ -78,7 +78,7 @@ const { habitName, repeat_option, timesPerWeek, tickedDays, habitImportance } = 
       <div className="flex items-center">
         <label className="flex items-center">
           Times a week:
-            <select name ="timesPerWeek" value={timesPerWeek} onChange={handleChange} className="text-base font-normal ml-4">
+            <select name ="timesPerWeek" value={timesPerWeek} onChange={handleChange} className="text-base font-normal ml-4 font-itim">
             {[1, 2, 3, 4, 5, 6].map((number) => (
               <option key={number} value={number}>
                 {number}
@@ -106,18 +106,18 @@ const { habitName, repeat_option, timesPerWeek, tickedDays, habitImportance } = 
   <div className="flex flex-col">
       <label>
         Why is this important?
-        <textarea name="habitImportance" value={habitImportance} onChange={handleChange} className="w-full text-base font-normal" />
+        <textarea name="habitImportance" value={habitImportance} onChange={handleChange} className="w-full text-base font-normal font-itim" />
       </label>
     </div>
       {onCancel ? (
   <div className="flex justify-between">
     <button
-      className="flex items-center justify-center bg-green text-FCE3BF font-bold text-biege-form-colour py-2 px-4 rounded-3xl w-full  hover:bg-green-clicked hover:scale-105 hover:border-green hover:shadow-md transition-all duration-200 active:translate-y-1 active:scale-95"
+      className="flex items-center justify-center bg-green text-FCE3BF text-biege-form-colour py-2 px-4 rounded-3xl w-full  hover:bg-green-clicked hover:scale-105 hover:border-green hover:shadow-md transition-all duration-200 active:translate-y-1 active:scale-95"
     >
       SAVE
     </button>
     <button
-      className="flex items-center justify-center bg-red text-FCE3BF font-bold text-biege-form-colour py-2 px-4 rounded-3xl w-full ml-4 hover:bg-red-clicked hover:scale-105 hover:border-green hover:shadow-md transition-all duration-200 active:translate-y-1 active:scale-95"
+      className="flex items-center justify-center bg-red text-FCE3BF text-biege-form-colour py-2 px-4 rounded-3xl w-full ml-4 hover:bg-red-clicked hover:scale-105 hover:border-green hover:shadow-md transition-all duration-200 active:translate-y-1 active:scale-95"
       type="button"
       onClick={onCancel}
     >
@@ -126,7 +126,7 @@ const { habitName, repeat_option, timesPerWeek, tickedDays, habitImportance } = 
   </div>
 ) : (
   <button
-    className="flex items-center justify-center bg-green text-FCE3BF font-bold text-biege-form-colour py-2 px-4 rounded-3xl w-full hover:bg-green-clicked hover:scale-105 hover:border-green hover:shadow-md transition-all duration-200 active:translate-y-1 active:scale-95"
+    className="flex items-center justify-center bg-green text-FCE3BF text-biege-form-colour py-2 px-4 rounded-3xl w-full hover:bg-green-clicked hover:scale-105 hover:border-green hover:shadow-md transition-all duration-200 active:translate-y-1 active:scale-95"
   >
     SAVE
   </button>

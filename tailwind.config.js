@@ -7,7 +7,14 @@ module.exports = {
   
   content: ["./src/**/*.{js,jsx,html}"],
   theme: {
-    extend: {      
+    extend: {
+
+      fontFamily: {
+          'fuzzy-bubbles': ['"Fuzzy Bubbles"', 'cursive'],
+          'itim': ['Itim', 'cursive'],
+          'jua': ['Jua', 'sans-serif'],
+      },
+
       margin: {
         '1px': '1px',
         '106px': '106px',
@@ -31,6 +38,7 @@ module.exports = {
       height: {
         '11': '11px',
         '13': '13px',
+          '15': '15px',
         '44': '44px',
         '108': '108px',
       },      

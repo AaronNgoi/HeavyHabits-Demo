@@ -152,21 +152,21 @@ function calculatePercentageMet(habits, weekDates) {
           </div>
       <div className="pt-2 pb-5 flex justify-between items-center">
         
-          <button className="flex items-center justify-center text-lg bg-brown-add-button text-FCE3BF font-bold py-2 px-4 border-brown-font border-2 rounded-22px shadow-press-brown-button active:bg-brown-button-press active:translate-y-2px active:shadow-none transition-all duration-100 hover:bg-brown-button-presss">
+          <button className="flex items-center justify-center text-lg bg-brown-add-button text-FCE3BF  py-2 px-4 border-brown-font border-2 rounded-22px shadow-press-brown-button active:bg-brown-button-press active:translate-y-2px active:shadow-none transition-all duration-100 hover:bg-brown-button-presss">
         <Link to="/reportmonth" className="flex flex-row items-center align-center">    
           <span className="flex">Month</span>
           <img src= {MonthIcon} alt="Back" className="flex ml-2 h-6 w-6 "/>
         </Link>  
           </button>
           <div>
-      <div className="font-bold text-right">
-    <div className="text-2xl">
+      <div className=" text-right">
+    <div className="text-2xl tracking-normal">
     {isSameYear(displayedWeekStart, displayedWeekEnd)
         ? format(displayedWeekStart, 'yyyy') // Same year
         : `${format(displayedWeekStart, 'yyyy')} - ${format(displayedWeekEnd, 'yyyy')}` // Different year
     }
 </div>
-<div>
+<div className='font-itim text-lg tracking-normal -mt-1'>
     {isSameMonth(displayedWeekStart, displayedWeekEnd)
         ? `${format(displayedWeekStart, 'd')} - ${format(displayedWeekEnd, 'd MMM')}` // Same month
         : `${format(displayedWeekStart, 'd MMM')} - ${format(displayedWeekEnd, 'd MMM')}` // Different month
@@ -181,8 +181,8 @@ function calculatePercentageMet(habits, weekDates) {
       <div className="standard-component px-4 py-4 space-y-4 mb-6">
         {habits.map(habit => (
   <div key={habit.habit_name} className="flex justify-between ">
-    <p className="font-bold whitespace-nowrap overflow-hidden overflow-ellipsis">{habit.habit_name}</p>
-    <div className="week-display flex flex-row text-center items-center justify-center space-x-1 font-bold">
+    <p className=" whitespace-nowrap overflow-hidden overflow-ellipsis text-lg tracking-normal">{habit.habit_name}</p>
+    <div className="week-display flex flex-row text-center items-center justify-center space-x-1 ">
       {displayHabitWeek(habit, weekDates)}
     </div>
   </div>
@@ -191,20 +191,20 @@ function calculatePercentageMet(habits, weekDates) {
 
       
        <div className="standard-component px-4 py-2 space-y-3 flex flex-col">
-          <p className="font-bold text-xl text-center">Week in Review</p>
+          <p className=" text-xl text-center">Week in Review</p>
           <div className="flex flex-row justify-around">
             <div className="flex flex-col text-center">
-               <p className="text-2xl font-bold">{calculateTotalDoneWeekly(habits,weekDates)} </p>
-              <p className="text-sm font-bold">Total Done</p>
+               <p className="text-2xl ">{calculateTotalDoneWeekly(habits,weekDates)} </p>
+              <p className="text-sm  font-itim">Total Done</p>
             </div>
            <div className="flex flex-col items-center justify-start text-center">
-            <p className="ml-2 text-2xl font-bold"> {calculatePercentageMet(habits, weekDates)} 
+            <p className="ml-2 text-2xl "> {calculatePercentageMet(habits, weekDates)}
               <span className="text-base font-normal self-end">%</span> </p>
-            <p className="text-sm font-bold">Met</p>
+            <p className="text-sm  font-itim">Met</p>
           </div>  
             <div className="flex flex-col items-center text-center justify-start">
-              <p className="text-2xl font-bold">{calculateBestStreak(habits, displayedWeekEnd)}</p>
-              <p className="text-sm font-bold">Best Streak</p>
+              <p className="text-2xl ">{calculateBestStreak(habits, displayedWeekEnd)}</p>
+              <p className="text-sm  font-itim">Best Streak</p>
          </div>  
           </div>
         </div>
