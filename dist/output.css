@@ -1502,6 +1502,7 @@ form {
   background-color: #FDEFD9 !important;
   border-radius: 18px !important;
   border-color: #BB925D !important;
+  font-family: 'Itim', cursive !important;
 }
 
 .react-datepicker__header {
